@@ -22,15 +22,20 @@ body {
 }
 
 .subnav .nav-pills {
-	padding-left: 10px;
+	padding-left: 6px;
 }
 
-#logo {
-	margin-left: 4px;
+/*a {
+	color: #9d261d;
+}*/
+
+.navbar-inner .container {
+	padding-top: 5px;
+	padding-left: 5px;
 }
 
-#signin {
-	margin-right: 10px;
+.navbar-inner .btn-group {
+	margin-right: 5px;
 }
 
 .well {
@@ -58,6 +63,15 @@ body {
 
 #searchField {
 	margin-right: -5px;
+}
+
+#gradeLabel {
+	margin-left: 46px;
+	margin-top: 8px;
+}
+
+#gradesSlider {
+	margin: 10px 0px 0px 20px;
 }
 
 #map {
