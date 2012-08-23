@@ -1,33 +1,33 @@
+html {
+	height: 100%;
+}
+
 body {
-	padding-top: 60px;
+	padding-top: 80px;
 	height: 100%;
+	overflow: hidden;
 }
 
-.span4 {
-	height: 100%;
-	overflow: scroll;
+.row-fluid .span3 {
+  width: 25.531914893617%;
+  *width: 23.351063829787233%;
 }
 
-.span8 {
-	height: 100%;
+.fill {
+	min-height: 100%;
+	position: relative;
 }
 
-.subnav {
-	position: fixed;
-	background: rgb(240, 240, 240);
-	top: 40px;
-	height: 37px;
-	width: 100%;
-	z-index: 1020;
+.filler:after{
+    background-color: inherit;
+    bottom: 0;
+    /*top: 40px;*/
+    right: 0;
+    content: "";
+    position: absolute;
+    width: inherit;
+    z-index: -1;
 }
-
-.subnav .nav-pills {
-	padding-left: 6px;
-}
-
-/*a {
-	color: #9d261d;
-}*/
 
 .navbar-inner .container {
 	padding-top: 5px;
@@ -38,45 +38,88 @@ body {
 	margin-right: 5px;
 }
 
+.container-fluid, .row-fluid {
+	padding-left: 0;
+	padding-right: 0;
+	/*position: fixed;*/
+}
+
 .well {
-	width: 100%;
-	height: 700px;
-	overflow: scroll;
+	padding: 20; margin: 0;
 }
 
-.container-fluid {
-	padding-left: 0px;
-	padding-right: 0px;
+.nav.nav-tabs.nav-stacked li {
+	/*padding: 10;*/
 }
 
-/*.btn.btn-inverse {
-	color: #C80000; #9d261d
-}*/
+.checkbox {
+	float: left;
+	vertical-align: middle;
+	margin-right: 5px;
+}
 
-#sortBy {
-	margin-top: 3px;
+ul.stars {
+	display: inline;
+	margin-left: 1%;
+}
+
+.nav-tabs.nav-stacked .label-important {
+	float: right;
+	vertical-align: middle;
+	margin-right: 2%;
+}
+
+.icon-chevron-right {
+	float: right;
+	margin-top: 2px;
+	margin-right: -6px;
+	opacity: .25;
+}
+
+.row-fluid [class*="span"] {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+#subNav {
+	padding-top: 40px;
 }
 
 #searchBar {
-	margin-top: 4px;
-}
-
-#searchField {
-	margin-right: -5px;
+	margin-left: 24px;
 }
 
 #gradeLabel {
-	margin-left: 46px;
 	margin-top: 8px;
+	margin-left: 20px;
 }
 
 #gradesSlider {
-	margin: 10px 0px 0px 20px;
+	margin: 7px 0 0 35px;
 }
 
 #map {
-	position: fixed;
-	margin-top: 16px;
 	width: 100%;
-	height: 700px;
+	height: 95%;
+}
+
+#map img { 
+  max-width: none;
+}
+
+#map label { 
+  width: auto; 
+  display:inline; 
+} 
+
+#friends {
+	width: 100%;
+	height: 5%;
+	/*background: #A60000;*/
+}
+
+#friends img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 
 }

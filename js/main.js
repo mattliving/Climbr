@@ -5,21 +5,20 @@ var grades = ['3','4','5a','5b','5c','6a','6a+','6b','6b+','6c','6c+',
 $(document).ready(function() {
     /* Twitter Bootstrap init */
     $('.dropdown-toggle').dropdown();
-    //$('#signup').modal();
 
     /* jQuery UI slider init */
     $("#slider-range").slider({
         range: true,
         min: 0,
         step: 30,
-        max: 810,
-        values: [ 0, 810 ],
+        max: 780,
+        values: [ 0, 780 ],
         slide: function( event, ui ) {
-            $("span.label.label-important").text(calcGrade(ui.values[ 0 ]) + " - " 
+            $("#gradeLabel .label.label-important").text(calcGrade(ui.values[ 0 ]) + " - " 
                 + calcGrade(ui.values[ 1 ]));
         }
     });
-    $("span.label.label-important").text("3 - 9b+");
+    $("#gradeLabel .label.label-important").text("3 - 9b+");
 
     /* Google maps init */
     var $map = $('#map');
@@ -30,18 +29,33 @@ $(document).ready(function() {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     });
+    // $map.gmap3({
+    //     action: 'geoLatLng',
+    //     callback: function(latLng) {
+    //         if (latLng){
+    //             $(this).gmap3({action: 'setCenter', args:[ latLng ]});
+    //         }
+    //         else handleNoGeolocation("Error");
+    //     }
+    // });
 
     $('.dropdown-menu li a').click(function() {
         $(this).addClass('active');
     });
 
-    geoLocate($map);    
+    geoLocate($map); 
+
+    $(window).resize(function () {
+        var h = $('.container-fluid').height(),
+            offsetTop = 80; // Calculate the top offset
+
+        $('#map').css('height', (h - offsetTop));
+        //$('#friends').css('height', (.1*h - offsetTop));
+    }).resize();   
 });
 
 function calcGrade(value) {
-    if (value === 0) return grades[0];
-    else if (value === 810) return grades[26];
-    else return grades[ 27 - (810 - value)/30 ];
+    return grades[ 26 - (780 - value)/30 ];
 }
 
 function geoLocate($map) {
