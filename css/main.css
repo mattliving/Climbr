@@ -38,6 +38,14 @@ body {
 	margin-right: 5px;
 }
 
+input.search-query {
+	margin-top: 5px;
+}
+
+.navbar .btn, .navbar .btn-group {
+	margin-top: 5px;
+}
+
 .container-fluid, .row-fluid {
 	padding-left: 0;
 	padding-right: 0;
@@ -82,11 +90,11 @@ ul.stars {
 }
 
 #subNav {
-	padding-top: 40px;
+	top: 40px;
 }
 
 #searchBar {
-	margin-left: 24px;
+	margin-left: 14px;
 }
 
 #gradeLabel {
