@@ -29,21 +29,21 @@ $(document).ready(function() {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     });
-    // $map.gmap3({
-    //     action: 'geoLatLng',
-    //     callback: function(latLng) {
-    //         if (latLng){
-    //             $(this).gmap3({action: 'setCenter', args:[ latLng ]});
-    //         }
-    //         else handleNoGeolocation("Error");
-    //     }
-    // });
+    $map.gmap3({
+        action: 'geoLatLng',
+        callback: function(latLng) {
+            if (latLng){
+                $(this).gmap3({action: 'setCenter', args:[ latLng ]});
+            }
+            else handleNoGeolocation("Error");
+        }
+    });
 
     $('.dropdown-menu li a').click(function() {
         $(this).addClass('active');
     });
 
-    geoLocate($map); 
+    //geoLocate($map); 
 
     $(window).resize(function () {
         var h = $('.container-fluid').height(),

@@ -1,0 +1,436 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'grunt' ]
+2 info using npm@1.1.36
+3 info using node@v0.8.2
+4 verbose config file /Users/niflhel/.npmrc
+5 verbose config file /usr/local/etc/npmrc
+6 verbose config file /usr/local/lib/node_modules/npm/npmrc
+7 verbose read json /usr/local/lib/package.json
+8 verbose read json /usr/local/lib/package.json
+9 verbose cache add [ 'grunt', null ]
+10 silly cache add name=undefined spec="grunt" args=["grunt",null]
+11 verbose parsed url { pathname: 'grunt', path: 'grunt', href: 'grunt' }
+12 silly lockFile 20ff3fd8-grunt grunt
+13 verbose lock grunt /Users/niflhel/.npm/20ff3fd8-grunt.lock
+14 silly lockFile 20ff3fd8-grunt grunt
+15 verbose addNamed [ 'grunt', '' ]
+16 verbose addNamed [ null, '' ]
+17 silly lockFile 55f1ff24-grunt grunt@
+18 verbose lock grunt@ /Users/niflhel/.npm/55f1ff24-grunt.lock
+19 silly addNameRange { name: 'grunt', range: '', hasData: false }
+20 verbose url raw grunt
+21 verbose url resolving [ 'https://registry.npmjs.org/', './grunt' ]
+22 verbose url resolved https://registry.npmjs.org/grunt
+23 info retry registry request attempt 1 at 21:20:30
+24 http GET https://registry.npmjs.org/grunt
+25 http 200 https://registry.npmjs.org/grunt
+26 silly registry.get cb [ 200,
+26 silly registry.get   { vary: 'Accept',
+26 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+26 silly registry.get     etag: '"42AD0JBB2HAIDHE4IOZ8JAQQW"',
+26 silly registry.get     date: 'Sat, 25 Aug 2012 04:20:30 GMT',
+26 silly registry.get     'content-type': 'application/json',
+26 silly registry.get     'content-length': '96961' } ]
+27 silly addNameRange number 2 { name: 'grunt', range: '', hasData: true }
+28 silly addNameRange versions [ 'grunt',
+28 silly addNameRange   [ '0.1.0',
+28 silly addNameRange     '0.1.1',
+28 silly addNameRange     '0.1.2',
+28 silly addNameRange     '0.2.0',
+28 silly addNameRange     '0.2.1',
+28 silly addNameRange     '0.2.2',
+28 silly addNameRange     '0.2.3',
+28 silly addNameRange     '0.2.4',
+28 silly addNameRange     '0.2.5',
+28 silly addNameRange     '0.2.6',
+28 silly addNameRange     '0.2.7',
+28 silly addNameRange     '0.2.8',
+28 silly addNameRange     '0.2.9',
+28 silly addNameRange     '0.2.10',
+28 silly addNameRange     '0.2.11',
+28 silly addNameRange     '0.2.12',
+28 silly addNameRange     '0.2.13',
+28 silly addNameRange     '0.2.14',
+28 silly addNameRange     '0.2.15',
+28 silly addNameRange     '0.3.0',
+28 silly addNameRange     '0.3.1',
+28 silly addNameRange     '0.3.2',
+28 silly addNameRange     '0.3.3',
+28 silly addNameRange     '0.3.4',
+28 silly addNameRange     '0.3.5',
+28 silly addNameRange     '0.3.6',
+28 silly addNameRange     '0.3.7',
+28 silly addNameRange     '0.3.8',
+28 silly addNameRange     '0.3.9',
+28 silly addNameRange     '0.3.10',
+28 silly addNameRange     '0.3.11',
+28 silly addNameRange     '0.3.12',
+28 silly addNameRange     '0.4.0a' ] ]
+29 verbose addNamed [ 'grunt', '0.3.12' ]
+30 verbose addNamed [ '0.3.12', '0.3.12' ]
+31 silly lockFile 9822722a-grunt-0-3-12 grunt@0.3.12
+32 verbose lock grunt@0.3.12 /Users/niflhel/.npm/9822722a-grunt-0-3-12.lock
+33 silly lockFile aff94535-npmjs-org-grunt-grunt-0-3-12-tgz https://registry.npmjs.org/grunt/-/grunt-0.3.12.tgz
+34 verbose lock https://registry.npmjs.org/grunt/-/grunt-0.3.12.tgz /Users/niflhel/.npm/aff94535-npmjs-org-grunt-grunt-0-3-12-tgz.lock
+35 verbose addRemoteTarball [ 'https://registry.npmjs.org/grunt/-/grunt-0.3.12.tgz',
+35 verbose addRemoteTarball   '749541287f534ee472923892a9c3ad75af6f0bbf' ]
+36 info retry fetch attempt 1 at 21:20:32
+37 verbose fetch to= /var/folders/p0/dphgqtmj33ng8r557g5qkd_80000gn/T/npm-61274/1345868432427-0.8379299049265683/tmp.tgz
+38 http GET https://registry.npmjs.org/grunt/-/grunt-0.3.12.tgz
+39 http 200 https://registry.npmjs.org/grunt/-/grunt-0.3.12.tgz
+40 silly shasum updated bytes 40960
+41 silly shasum updated bytes 40960
+42 silly shasum updated bytes 40960
+43 silly shasum updated bytes 40960
+44 silly shasum updated bytes 28721
+45 info shasum 749541287f534ee472923892a9c3ad75af6f0bbf
+45 info shasum /var/folders/p0/dphgqtmj33ng8r557g5qkd_80000gn/T/npm-61274/1345868432427-0.8379299049265683/tmp.tgz
+46 verbose tar unpack /var/folders/p0/dphgqtmj33ng8r557g5qkd_80000gn/T/npm-61274/1345868432427-0.8379299049265683/tmp.tgz
+47 silly lockFile 6dfdcab4-32427-0-8379299049265683-package /var/folders/p0/dphgqtmj33ng8r557g5qkd_80000gn/T/npm-61274/1345868432427-0.8379299049265683/package
+48 verbose lock /var/folders/p0/dphgqtmj33ng8r557g5qkd_80000gn/T/npm-61274/1345868432427-0.8379299049265683/package /Users/niflhel/.npm/6dfdcab4-32427-0-8379299049265683-package.lock
+49 silly gunzTarPerm modes [ '755', '644' ]
+50 silly gunzTarPerm extractEntry package.json
+51 silly gunzTarPerm extractEntry .npmignore
+52 silly gunzTarPerm extractEntry README.md
+53 silly gunzTarPerm extractEntry grunt.js
+54 silly gunzTarPerm extractEntry test/fixtures/a.js
+55 silly gunzTarPerm extractEntry test/fixtures/b.js
+56 silly gunzTarPerm extractEntry test/fixtures/banner.js
+57 silly gunzTarPerm extractEntry test/fixtures/banner2.js
+58 silly gunzTarPerm extractEntry test/fixtures/banner3.js
+59 silly gunzTarPerm extractEntry test/fixtures/octocat.png
+60 silly gunzTarPerm extractEntry test/fixtures/template.txt
+61 silly gunzTarPerm extractEntry test/fixtures/test.json
+62 silly gunzTarPerm extractEntry test/grunt/file_test.js
+63 silly gunzTarPerm extractEntry test/grunt/template_test.js
+64 silly gunzTarPerm extractEntry test/grunt/utils_test.js
+65 silly gunzTarPerm extractEntry test/tasks/concat_test.js
+66 silly gunzTarPerm extractEntry test/tasks/init_test.js
+67 silly gunzTarPerm extractEntry test/tasks/misc_test.js
+68 silly gunzTarPerm extractEntry test/util/namespace_test.js
+69 silly gunzTarPerm extractEntry test/util/task_test.js
+70 silly gunzTarPerm extractEntry bin/grunt
+71 silly gunzTarPerm extractEntry LICENSE-MIT
+72 silly gunzTarPerm extractEntry dev/init.exp
+73 silly gunzTarPerm extractEntry docs/README.md
+74 silly gunzTarPerm extractEntry docs/getting_started.md
+75 silly gunzTarPerm extractEntry docs/api_fail.md
+76 silly gunzTarPerm extractEntry docs/api_file.md
+77 silly gunzTarPerm extractEntry docs/api_log.md
+78 silly gunzTarPerm extractEntry docs/api_task.md
+79 silly gunzTarPerm extractEntry docs/api_template.md
+80 silly gunzTarPerm extractEntry docs/api_utils.md
+81 silly gunzTarPerm extractEntry docs/contributing.md
+82 silly gunzTarPerm extractEntry docs/example_gruntfiles.md
+83 silly gunzTarPerm extractEntry docs/exit_codes.md
+84 silly gunzTarPerm extractEntry docs/faq.md
+85 silly gunzTarPerm extractEntry docs/api_config.md
+86 silly gunzTarPerm extractEntry docs/helpers_directives.md
+87 silly gunzTarPerm extractEntry docs/plugins.md
+88 silly gunzTarPerm extractEntry docs/api.md
+89 silly gunzTarPerm extractEntry docs/task_concat.md
+90 silly gunzTarPerm extractEntry docs/task_init.md
+91 silly gunzTarPerm extractEntry docs/task_lint.md
+92 silly gunzTarPerm extractEntry docs/task_min.md
+93 silly gunzTarPerm extractEntry docs/task_qunit.md
+94 silly gunzTarPerm extractEntry docs/task_server.md
+95 silly gunzTarPerm extractEntry docs/toc.md
+96 silly gunzTarPerm extractEntry docs/types_of_tasks.md
+97 silly gunzTarPerm extractEntry tasks/concat.js
+98 silly gunzTarPerm extractEntry tasks/init.js
+99 silly gunzTarPerm extractEntry tasks/lint.js
+100 silly gunzTarPerm extractEntry tasks/min.js
+101 silly gunzTarPerm extractEntry tasks/test.js
+102 silly gunzTarPerm extractEntry tasks/server.js
+103 silly gunzTarPerm extractEntry tasks/qunit.js
+104 silly gunzTarPerm extractEntry tasks/watch.js
+105 silly gunzTarPerm extractEntry tasks/misc.js
+106 silly gunzTarPerm extractEntry tasks/qunit/phantom.js
+107 silly gunzTarPerm extractEntry tasks/qunit/qunit.js
+108 silly gunzTarPerm extractEntry tasks/qunit/phantom.json
+109 silly gunzTarPerm extractEntry tasks/init/node.js
+110 silly gunzTarPerm extractEntry tasks/init/gruntfile.js
+111 silly gunzTarPerm extractEntry tasks/init/gruntplugin.js
+112 silly gunzTarPerm extractEntry tasks/init/commonjs.js
+113 silly gunzTarPerm extractEntry tasks/init/jquery.js
+114 silly gunzTarPerm extractEntry tasks/init/gruntfile/root/grunt.js
+115 silly gunzTarPerm extractEntry tasks/init/commonjs/rename.json
+116 silly gunzTarPerm extractEntry tasks/init/commonjs/root/.npmignore
+117 silly gunzTarPerm extractEntry tasks/init/commonjs/root/README.md
+118 silly gunzTarPerm extractEntry tasks/init/commonjs/root/grunt.js
+119 silly gunzTarPerm extractEntry tasks/init/commonjs/root/lib/name.js
+120 silly gunzTarPerm extractEntry tasks/init/commonjs/root/test/name_test.js
+121 silly gunzTarPerm extractEntry tasks/init/gruntplugin/rename.json
+122 silly gunzTarPerm extractEntry tasks/init/gruntplugin/root/.npmignore
+123 silly gunzTarPerm extractEntry tasks/init/gruntplugin/root/README.md
+124 silly gunzTarPerm extractEntry tasks/init/gruntplugin/root/grunt.js
+125 silly gunzTarPerm extractEntry tasks/init/gruntplugin/root/bin/name
+126 silly gunzTarPerm extractEntry tasks/init/gruntplugin/root/tasks/name.js
+127 silly gunzTarPerm extractEntry tasks/init/gruntplugin/root/test/name_test.js
+128 silly gunzTarPerm extractEntry tasks/init/licenses/LICENSE-GPL
+129 silly gunzTarPerm extractEntry tasks/init/licenses/LICENSE-MIT
+130 silly gunzTarPerm extractEntry tasks/init/misc/placeholder
+131 silly gunzTarPerm extractEntry tasks/init/node/rename.json
+132 silly gunzTarPerm extractEntry tasks/init/node/root/.npmignore
+133 silly gunzTarPerm extractEntry tasks/init/node/root/README.md
+134 silly gunzTarPerm extractEntry tasks/init/node/root/grunt.js
+135 silly gunzTarPerm extractEntry tasks/init/node/root/lib/name.js
+136 silly gunzTarPerm extractEntry tasks/init/node/root/test/name_test.js
+137 silly gunzTarPerm extractEntry tasks/init/jquery/rename.json
+138 silly gunzTarPerm extractEntry tasks/init/jquery/root/README.md
+139 silly gunzTarPerm extractEntry tasks/init/jquery/root/grunt.js
+140 silly gunzTarPerm extractEntry tasks/init/jquery/root/libs/jquery-loader.js
+141 silly gunzTarPerm extractEntry tasks/init/jquery/root/libs/jquery/jquery.js
+142 silly gunzTarPerm extractEntry tasks/init/jquery/root/libs/qunit/qunit.js
+143 silly gunzTarPerm extractEntry tasks/init/jquery/root/libs/qunit/qunit.css
+144 silly gunzTarPerm extractEntry tasks/init/jquery/root/src/name.js
+145 silly gunzTarPerm extractEntry tasks/init/jquery/root/test/name_test.js
+146 silly gunzTarPerm extractEntry tasks/init/jquery/root/test/name.html
+147 silly gunzTarPerm extractEntry lib/grunt.js
+148 silly gunzTarPerm extractEntry lib/grunt/cli.js
+149 silly gunzTarPerm extractEntry lib/grunt/config.js
+150 silly gunzTarPerm extractEntry lib/grunt/fail.js
+151 silly gunzTarPerm extractEntry lib/grunt/file.js
+152 silly gunzTarPerm extractEntry lib/grunt/help.js
+153 silly gunzTarPerm extractEntry lib/grunt/log.js
+154 silly gunzTarPerm extractEntry lib/grunt/option.js
+155 silly gunzTarPerm extractEntry lib/grunt/task.js
+156 silly gunzTarPerm extractEntry lib/grunt/template.js
+157 silly gunzTarPerm extractEntry lib/grunt/utils.js
+158 silly gunzTarPerm extractEntry lib/util/findup.js
+159 silly gunzTarPerm extractEntry lib/util/namespace.js
+160 silly gunzTarPerm extractEntry lib/util/task.js
+161 verbose read json /var/folders/p0/dphgqtmj33ng8r557g5qkd_80000gn/T/npm-61274/1345868432427-0.8379299049265683/package/package.json
+162 silly lockFile 6dfdcab4-32427-0-8379299049265683-package /var/folders/p0/dphgqtmj33ng8r557g5qkd_80000gn/T/npm-61274/1345868432427-0.8379299049265683/package
+163 verbose from cache /var/folders/p0/dphgqtmj33ng8r557g5qkd_80000gn/T/npm-61274/1345868432427-0.8379299049265683/package/package.json
+164 verbose tar pack [ '/Users/niflhel/.npm/grunt/0.3.12/package.tgz',
+164 verbose tar pack   '/var/folders/p0/dphgqtmj33ng8r557g5qkd_80000gn/T/npm-61274/1345868432427-0.8379299049265683/package' ]
+165 verbose tarball /Users/niflhel/.npm/grunt/0.3.12/package.tgz
+166 verbose folder /var/folders/p0/dphgqtmj33ng8r557g5qkd_80000gn/T/npm-61274/1345868432427-0.8379299049265683/package
+167 silly lockFile 7c4415f2-hel-npm-grunt-0-3-12-package-tgz /Users/niflhel/.npm/grunt/0.3.12/package.tgz
+168 verbose lock /Users/niflhel/.npm/grunt/0.3.12/package.tgz /Users/niflhel/.npm/7c4415f2-hel-npm-grunt-0-3-12-package-tgz.lock
+169 silly lockFile 7c4415f2-hel-npm-grunt-0-3-12-package-tgz /Users/niflhel/.npm/grunt/0.3.12/package.tgz
+170 silly lockFile 1cc03f57-niflhel-npm-grunt-0-3-12-package /Users/niflhel/.npm/grunt/0.3.12/package
+171 verbose lock /Users/niflhel/.npm/grunt/0.3.12/package /Users/niflhel/.npm/1cc03f57-niflhel-npm-grunt-0-3-12-package.lock
+172 silly lockFile 1cc03f57-niflhel-npm-grunt-0-3-12-package /Users/niflhel/.npm/grunt/0.3.12/package
+173 verbose tar unpack /Users/niflhel/.npm/grunt/0.3.12/package.tgz
+174 silly lockFile 1cc03f57-niflhel-npm-grunt-0-3-12-package /Users/niflhel/.npm/grunt/0.3.12/package
+175 verbose lock /Users/niflhel/.npm/grunt/0.3.12/package /Users/niflhel/.npm/1cc03f57-niflhel-npm-grunt-0-3-12-package.lock
+176 silly gunzTarPerm modes [ '755', '644' ]
+177 silly gunzTarPerm extractEntry package.json
+178 silly gunzTarPerm extractEntry .npmignore
+179 silly gunzTarPerm extractEntry README.md
+180 silly gunzTarPerm extractEntry grunt.js
+181 silly gunzTarPerm extractEntry test/fixtures/a.js
+182 silly gunzTarPerm extractEntry test/fixtures/b.js
+183 silly gunzTarPerm extractEntry test/fixtures/banner.js
+184 silly gunzTarPerm extractEntry test/fixtures/banner2.js
+185 silly gunzTarPerm extractEntry test/fixtures/banner3.js
+186 silly gunzTarPerm extractEntry test/fixtures/octocat.png
+187 silly gunzTarPerm extractEntry test/fixtures/template.txt
+188 silly gunzTarPerm extractEntry test/fixtures/test.json
+189 silly gunzTarPerm extractEntry test/grunt/file_test.js
+190 silly gunzTarPerm extractEntry test/grunt/template_test.js
+191 silly gunzTarPerm extractEntry test/grunt/utils_test.js
+192 silly gunzTarPerm extractEntry test/tasks/concat_test.js
+193 silly gunzTarPerm extractEntry test/tasks/init_test.js
+194 silly gunzTarPerm extractEntry test/tasks/misc_test.js
+195 silly gunzTarPerm extractEntry test/util/namespace_test.js
+196 silly gunzTarPerm extractEntry test/util/task_test.js
+197 silly gunzTarPerm extractEntry bin/grunt
+198 silly gunzTarPerm extractEntry LICENSE-MIT
+199 silly gunzTarPerm extractEntry dev/init.exp
+200 silly gunzTarPerm extractEntry docs/README.md
+201 silly gunzTarPerm extractEntry docs/getting_started.md
+202 silly gunzTarPerm extractEntry docs/api_fail.md
+203 silly gunzTarPerm extractEntry docs/api_file.md
+204 silly gunzTarPerm extractEntry docs/api_log.md
+205 silly gunzTarPerm extractEntry docs/api_task.md
+206 silly gunzTarPerm extractEntry docs/api_template.md
+207 silly gunzTarPerm extractEntry docs/api_utils.md
+208 silly gunzTarPerm extractEntry docs/contributing.md
+209 silly gunzTarPerm extractEntry docs/example_gruntfiles.md
+210 silly gunzTarPerm extractEntry docs/exit_codes.md
+211 silly gunzTarPerm extractEntry docs/faq.md
+212 silly gunzTarPerm extractEntry docs/api_config.md
+213 silly gunzTarPerm extractEntry docs/helpers_directives.md
+214 silly gunzTarPerm extractEntry docs/plugins.md
+215 silly gunzTarPerm extractEntry docs/api.md
+216 silly gunzTarPerm extractEntry docs/task_concat.md
+217 silly gunzTarPerm extractEntry docs/task_init.md
+218 silly gunzTarPerm extractEntry docs/task_lint.md
+219 silly gunzTarPerm extractEntry docs/task_min.md
+220 silly gunzTarPerm extractEntry docs/task_qunit.md
+221 silly gunzTarPerm extractEntry docs/task_server.md
+222 silly gunzTarPerm extractEntry docs/toc.md
+223 silly gunzTarPerm extractEntry docs/types_of_tasks.md
+224 silly gunzTarPerm extractEntry tasks/concat.js
+225 silly gunzTarPerm extractEntry tasks/init.js
+226 silly gunzTarPerm extractEntry tasks/lint.js
+227 silly gunzTarPerm extractEntry tasks/min.js
+228 silly gunzTarPerm extractEntry tasks/test.js
+229 silly gunzTarPerm extractEntry tasks/server.js
+230 silly gunzTarPerm extractEntry tasks/qunit.js
+231 silly gunzTarPerm extractEntry tasks/watch.js
+232 silly gunzTarPerm extractEntry tasks/misc.js
+233 silly gunzTarPerm extractEntry tasks/qunit/phantom.js
+234 silly gunzTarPerm extractEntry tasks/qunit/qunit.js
+235 silly gunzTarPerm extractEntry tasks/qunit/phantom.json
+236 silly gunzTarPerm extractEntry tasks/init/node.js
+237 silly gunzTarPerm extractEntry tasks/init/gruntfile.js
+238 silly gunzTarPerm extractEntry tasks/init/gruntplugin.js
+239 silly gunzTarPerm extractEntry tasks/init/commonjs.js
+240 silly gunzTarPerm extractEntry tasks/init/jquery.js
+241 silly gunzTarPerm extractEntry tasks/init/gruntfile/root/grunt.js
+242 silly gunzTarPerm extractEntry tasks/init/commonjs/rename.json
+243 silly gunzTarPerm extractEntry tasks/init/commonjs/root/.npmignore
+244 silly gunzTarPerm extractEntry tasks/init/commonjs/root/README.md
+245 silly gunzTarPerm extractEntry tasks/init/commonjs/root/grunt.js
+246 silly gunzTarPerm extractEntry tasks/init/commonjs/root/lib/name.js
+247 silly gunzTarPerm extractEntry tasks/init/commonjs/root/test/name_test.js
+248 silly gunzTarPerm extractEntry tasks/init/gruntplugin/rename.json
+249 silly gunzTarPerm extractEntry tasks/init/gruntplugin/root/.npmignore
+250 silly gunzTarPerm extractEntry tasks/init/gruntplugin/root/README.md
+251 silly gunzTarPerm extractEntry tasks/init/gruntplugin/root/grunt.js
+252 silly gunzTarPerm extractEntry tasks/init/gruntplugin/root/bin/name
+253 silly gunzTarPerm extractEntry tasks/init/gruntplugin/root/tasks/name.js
+254 silly gunzTarPerm extractEntry tasks/init/gruntplugin/root/test/name_test.js
+255 silly gunzTarPerm extractEntry tasks/init/licenses/LICENSE-GPL
+256 silly gunzTarPerm extractEntry tasks/init/licenses/LICENSE-MIT
+257 silly gunzTarPerm extractEntry tasks/init/misc/placeholder
+258 silly gunzTarPerm extractEntry tasks/init/node/rename.json
+259 silly gunzTarPerm extractEntry tasks/init/node/root/.npmignore
+260 silly gunzTarPerm extractEntry tasks/init/node/root/README.md
+261 silly gunzTarPerm extractEntry tasks/init/node/root/grunt.js
+262 silly gunzTarPerm extractEntry tasks/init/node/root/lib/name.js
+263 silly gunzTarPerm extractEntry tasks/init/node/root/test/name_test.js
+264 silly gunzTarPerm extractEntry tasks/init/jquery/rename.json
+265 silly gunzTarPerm extractEntry tasks/init/jquery/root/README.md
+266 silly gunzTarPerm extractEntry tasks/init/jquery/root/grunt.js
+267 silly gunzTarPerm extractEntry tasks/init/jquery/root/libs/jquery-loader.js
+268 silly gunzTarPerm extractEntry tasks/init/jquery/root/libs/jquery/jquery.js
+269 silly gunzTarPerm extractEntry tasks/init/jquery/root/libs/qunit/qunit.js
+270 silly gunzTarPerm extractEntry tasks/init/jquery/root/libs/qunit/qunit.css
+271 silly gunzTarPerm extractEntry tasks/init/jquery/root/src/name.js
+272 silly gunzTarPerm extractEntry tasks/init/jquery/root/test/name_test.js
+273 silly gunzTarPerm extractEntry tasks/init/jquery/root/test/name.html
+274 silly gunzTarPerm extractEntry lib/grunt.js
+275 silly gunzTarPerm extractEntry lib/grunt/cli.js
+276 silly gunzTarPerm extractEntry lib/grunt/config.js
+277 silly gunzTarPerm extractEntry lib/grunt/fail.js
+278 silly gunzTarPerm extractEntry lib/grunt/file.js
+279 silly gunzTarPerm extractEntry lib/grunt/help.js
+280 silly gunzTarPerm extractEntry lib/grunt/log.js
+281 silly gunzTarPerm extractEntry lib/grunt/option.js
+282 silly gunzTarPerm extractEntry lib/grunt/task.js
+283 silly gunzTarPerm extractEntry lib/grunt/template.js
+284 silly gunzTarPerm extractEntry lib/grunt/utils.js
+285 silly gunzTarPerm extractEntry lib/util/findup.js
+286 silly gunzTarPerm extractEntry lib/util/namespace.js
+287 silly gunzTarPerm extractEntry lib/util/task.js
+288 verbose read json /Users/niflhel/.npm/grunt/0.3.12/package/package.json
+289 silly lockFile 1cc03f57-niflhel-npm-grunt-0-3-12-package /Users/niflhel/.npm/grunt/0.3.12/package
+290 silly shasum updated bytes 40960
+291 silly shasum updated bytes 40960
+292 silly shasum updated bytes 40960
+293 silly shasum updated bytes 40960
+294 silly shasum updated bytes 28721
+295 info shasum 749541287f534ee472923892a9c3ad75af6f0bbf
+295 info shasum /Users/niflhel/.npm/grunt/0.3.12/package.tgz
+296 verbose from cache /Users/niflhel/.npm/grunt/0.3.12/package/package.json
+297 verbose chmod /Users/niflhel/.npm/grunt/0.3.12/package.tgz 644
+298 verbose chown /Users/niflhel/.npm/grunt/0.3.12/package.tgz [ 501, 20 ]
+299 silly lockFile aff94535-npmjs-org-grunt-grunt-0-3-12-tgz https://registry.npmjs.org/grunt/-/grunt-0.3.12.tgz
+300 silly lockFile 9822722a-grunt-0-3-12 grunt@0.3.12
+301 silly lockFile 55f1ff24-grunt grunt@
+302 silly resolved [ { name: 'grunt',
+302 silly resolved     description: 'A task-based command line build tool for JavaScript projects.',
+302 silly resolved     version: '0.3.12',
+302 silly resolved     author: { name: '"Cowboy" Ben Alman', url: 'http://benalman.com/' },
+302 silly resolved     homepage: 'http://github.com/cowboy/grunt',
+302 silly resolved     repository: { type: 'git', url: 'git://github.com/cowboy/grunt.git' },
+302 silly resolved     bugs: { url: 'http://github.com/cowboy/grunt/issues' },
+302 silly resolved     licenses: [ [Object] ],
+302 silly resolved     main: 'lib/grunt',
+302 silly resolved     bin: { grunt: 'bin/grunt' },
+302 silly resolved     scripts: { test: 'grunt test' },
+302 silly resolved     engines: { node: '>= 0.6.0' },
+302 silly resolved     preferGlobal: true,
+302 silly resolved     keywords:
+302 silly resolved      [ 'async',
+302 silly resolved        'cli',
+302 silly resolved        'minify',
+302 silly resolved        'uglify',
+302 silly resolved        'build',
+302 silly resolved        'underscore',
+302 silly resolved        'unit',
+302 silly resolved        'test',
+302 silly resolved        'qunit',
+302 silly resolved        'nodeunit',
+302 silly resolved        'server',
+302 silly resolved        'init',
+302 silly resolved        'scaffold',
+302 silly resolved        'make',
+302 silly resolved        'jake',
+302 silly resolved        'tool' ],
+302 silly resolved     dependencies:
+302 silly resolved      { async: '~0.1.18',
+302 silly resolved        colors: '~0.6.0',
+302 silly resolved        connect: '~2.3.4',
+302 silly resolved        dateformat: '1.0.2-1.2.3',
+302 silly resolved        'glob-whatev': '~0.1.4',
+302 silly resolved        hooker: '~0.2.3',
+302 silly resolved        jshint: '~0.5.9',
+302 silly resolved        nodeunit: '~0.6.4',
+302 silly resolved        nopt: '~1.0.10',
+302 silly resolved        prompt: '~0.1.12',
+302 silly resolved        semver: '~1.0.13',
+302 silly resolved        'uglify-js': '~1.0.7',
+302 silly resolved        underscore: '~1.2.4',
+302 silly resolved        'underscore.string': '~2.1.1',
+302 silly resolved        temporary: '~0.0.4',
+302 silly resolved        'gzip-js': '~0.3.1' },
+302 silly resolved     devDependencies: {},
+302 silly resolved     readme: '# grunt\nGrunt is a task-based command line build tool for JavaScript projects.\n\n_Grunt is currently in beta. While I\'m already using it on multiple projects, it might have a minor issue or two. And things might change before its final release, based on your feedback. Please try it out in a project, and [make suggestions][issues] or [report bugs][issues]!_\n\n## Getting started <a name="getting-started" href="#getting-started" title="Link to this section">⚑</a>\nBe sure to read the [getting started guide](/cowboy/grunt/blob/master/docs/getting_started.md), which is a complete guide to configuring grunt for your project. In addition, check out the [example gruntfiles](/cowboy/grunt/blob/master/docs/example_gruntfiles.md) which highlight a number of fairly common configurations.\n\n## Built-in tasks <a name="built-in-tasks" href="#built-in-tasks" title="Link to this section">⚑</a>\nAs of now, grunt has the following predefined tasks that you can use in your project:\n\n* [concat](/cowboy/grunt/blob/master/docs/task_concat.md) - Concatenate files.\n* [init](/cowboy/grunt/blob/master/docs/task_init.md) - Generate project scaffolding from a predefined template.\n* [lint](/cowboy/grunt/blob/master/docs/task_lint.md) - Validate files with [JSHint][jshint].\n* [min](/cowboy/grunt/blob/master/docs/task_min.md) - Minify files with [UglifyJS][uglify].\n* [qunit](/cowboy/grunt/blob/master/docs/task_qunit.md) - Run [QUnit][qunit] unit tests in a headless [PhantomJS][phantom] instance.\n* [server](/cowboy/grunt/blob/master/docs/task_server.md) - Start a static web server.\n* test - Run unit tests with [nodeunit][nodeunit].\n* watch - Run predefined tasks whenever watched files change.\n\n_(More documentation forthcoming)_\n\n## Custom tasks <a name="custom-tasks" href="#custom-tasks" title="Link to this section">⚑</a>\nIn addition to the built-in tasks, you can create your own tasks. Don\'t like a built-in task\'s default behavior? Override it. Check out the [grunt API documentation](/cowboy/grunt/blob/master/docs/api.md) and the [built-in tasks source](/cowboy/grunt/blob/master/tasks) for everything you need to know about creating custom tasks.\n\n## Documentation <a name="documentation" href="#documentation" title="Link to this section">⚑</a>\nTake a look at the [documentation table of contents][docs] for all the things.\n\n## Why does grunt exist? <a name="why-does-grunt-exist" href="#why-does-grunt-exist" title="Link to this section">⚑</a>\nDoing all this stuff manually is a total pain, and building all this stuff into a gigantic Makefile / Jakefile / Cakefile / Rakefile / ?akefile that\'s maintained across all my projects was also becoming a total pain. Since I always found myself performing the same tasks over and over again, for every project, it made sense to build a task-based build tool.\n\nBeing primarily a JavaScript developer, I decided to use [Node.js][node] and [npm][npm] because the dependencies I most care about ([JSHint][jshint] and [UglifyJS][uglify]) were already npm modules. That being said, while Node.js was designed to support highly-concurrent asynchronous-IO-driven web servers, it was clearly NOT designed to make command-line build tools. But none of that matters, because grunt works. Just install it and see.\n\n## Installing grunt <a name="installing-grunt" href="#installing-grunt" title="Link to this section">⚑</a>\n\nGrunt is available as an [npm][npm] module. If you install grunt globally via `npm install -g grunt`, it will be available for use in all of your projects. Once grunt has been installed, you can type `grunt --help` at the command line for more information. And if you want to see grunt "grunt" itself, cd into grunt\'s directory and type `grunt`\n\n_Note: in Windows, you may need to run grunt as `grunt.cmd`. See the [FAQ](/cowboy/grunt/blob/master/docs/faq.md) for more Windows-specific information._\n\nFor projects already using grunt, you\'re done. Otherwise, if you\'re adding grunt to an existing project or starting from scratch, check out the [getting started guide](/cowboy/grunt/blob/master/docs/getting_started.md), which is a complete guide to configuring grunt for your project.\n\n## Release History <a name="release-history" href="#release-history" title="Link to this section">⚑</a>\n_(Until v1.0.0, this will only be updated when major or breaking changes are made)_\n\n* 2012/07/30 - v0.3.12 - Fixing a bug in node 0.8.x where utils.spawn would terminate before receiving all child stdout.\n* 2012/06/25 - v0.3.10 - Updating a few dependencies to work with node 0.8.x (0.6.x should still work).\n* 2012/04/18 - v0.3.9 - The min task (via the uglify helper) now appends a semicolon to the end of the generated source.\n* 2012/04/06 - v0.3.8 - Init template tweaks. Anchor links added to docs, along with grunt-internal docs task to generate them. The watch task now supports multiple targets with separate wildcards and tasks. Locally-installed grunt will override global grunt even when run from global "grunt" script.\n* 2012/04/01 - v0.3.7 - Tweaked the behavior of the init template `exports.warnOn` property and added more init template documentation. Fixed duplicate PhantomJS debug output in qunit task. Added useful nodeunit and qunit comments into init template generated test .js files.\n* 2012/03/28 - v0.3.6 - Fixed a `--help` screen issue, a few grunt plugin related issues, and attempted to improve the overall grunt plugin docs and API.\n* 2012/03/27 - v0.3.5 - Fixed a handful of weird Windows issues. Changed default m/d/yyyy dates to yyyy-mm-dd ISO 8601. Fixed some init task bugs, docs errata, and added a lot more content to the init task docs.\n* 2012/03/26 - v0.3.3 - Added a "gruntfile" init template. Create a basic gruntfile in seconds with `grunt init:gruntfile`. A few other minor fixes.\n* 2012/03/25 - v0.3.2 - Init tasks can now specify a file matching wildcard for the initial "files exist" warning. The jQuery init template now has jQuery 1.7.2. Fixed a bug in the `task.expand*` methods.\n* 2012/03/25 - v0.3.1 - Added a few methods. Substantially reworked the init task and templates.\n* 2012/03/23 - v0.3.0 - Too many changes to list. But in brief: completely reorganized the API, removed all globals, added docs and examples for nearly everything, built a preliminary plugin system (that still needs to be tested). PLEASE RTFM OK? THX U.\n* 2012/02/03 - v0.2.14 - Added a server task (which starts a static webserver for your tasks). The qunit task now uses PhantomJS instead of Zombie.js (4768 of 4971 jQuery unit test pass, neat), and supports both file wildcards as well as http:// or https:// urls. (static webserver, anyone?). Grunt should no longer "hang" when done.\n* 2012/01/29 - v0.2.5 - Added a "qunit" task as well as an init "jquery" template (as of now, there are also "node" and "commonjs" init templates).\n* 2012/01/22 - v0.2.1 - Removed handlebars, templates are universally handled by underscore now. Changed init task template tags from <% %> to {% %}. Banners beginning with /*! will no longer be stripped.\n* 2012/01/22 - v0.2.0 - Added "init" task with a sample template, reworked a lot of code. Hopefully it\'s backwards-compatible.\n* 2012/01/11 - v0.1.0 - Initial release.\n\n## License <a name="license" href="#license" title="Link to this section">⚑</a>\nCopyright (c) 2012 "Cowboy" Ben Alman  \nLicensed under the MIT license.  \n<http://benalman.com/about/license/>\n\n\n[docs]: /cowboy/grunt/blob/master/docs/toc.md\n[docs-init]: /cowboy/grunt/blob/master/docs/task_init.md\n[issues]: /cowboy/grunt/issues\n\n[node]: http://nodejs.org/\n[npm]: http://npmjs.org/\n[jshint]: http://www.jshint.com/\n[uglify]: https://github.com/mishoo/UglifyJS/\n[nodeunit]: https://github.com/caolan/nodeunit\n[qunit]: http://docs.jquery.com/QUnit\n[phantom]: http://www.phantomjs.org/\n',
+302 silly resolved     _id: 'grunt@0.3.12',
+302 silly resolved     dist: { shasum: '749541287f534ee472923892a9c3ad75af6f0bbf' },
+302 silly resolved     _from: 'grunt' } ]
+303 info install grunt@0.3.12 into /usr/local/lib
+304 info installOne grunt@0.3.12
+305 verbose from cache /Users/niflhel/.npm/grunt/0.3.12/package/package.json
+306 info /usr/local/lib/node_modules/grunt unbuild
+307 verbose read json /usr/local/lib/node_modules/grunt/package.json
+308 verbose tar unpack /Users/niflhel/.npm/grunt/0.3.12/package.tgz
+309 silly lockFile 37320430-usr-local-lib-node-modules-grunt /usr/local/lib/node_modules/grunt
+310 verbose lock /usr/local/lib/node_modules/grunt /Users/niflhel/.npm/37320430-usr-local-lib-node-modules-grunt.lock
+311 silly gunzTarPerm modes [ '755', '644' ]
+312 error Error: EACCES, mkdir '/usr/local/lib/node_modules/grunt'
+312 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/grunt']
+312 error   errno: 3,
+312 error   code: 'EACCES',
+312 error   path: '/usr/local/lib/node_modules/grunt',
+312 error   fstream_type: 'Directory',
+312 error   fstream_path: '/usr/local/lib/node_modules/grunt',
+312 error   fstream_class: 'DirWriter',
+312 error   fstream_stack:
+312 error    [ 'DirWriter._create (/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23)',
+312 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:51:17',
+312 error      'Object.oncomplete (fs.js:297:15)' ] }
+313 error Please try running this command again as root/Administrator.
+314 error System Darwin 11.4.0
+315 error command "node" "/usr/local/bin/npm" "install" "-g" "grunt"
+316 error cwd /Library/WebServer/Documents/climbr
+317 error node -v v0.8.2
+318 error npm -v 1.1.36
+319 error path /usr/local/lib/node_modules/grunt
+320 error fstream_path /usr/local/lib/node_modules/grunt
+321 error fstream_type Directory
+322 error fstream_class DirWriter
+323 error code EACCES
+324 error message EACCES, mkdir '/usr/local/lib/node_modules/grunt'
+325 error errno 3
+326 error fstream_stack DirWriter._create (/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23)
+326 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:51:17
+326 error fstream_stack Object.oncomplete (fs.js:297:15)
+327 error 3 errno
+328 verbose exit [ 3, true ]
