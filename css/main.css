@@ -61,6 +61,19 @@ body {
   filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
 }
 
+	
+.form-search .input-append .search-query {  	
+	-webkit-border-radius: 6px 0 0 6px; 	
+	   -moz-border-radius: 6px 0 0 6px; 	
+	        border-radius: 6px 0 0 6px;
+}
+
+.form-search .input-append .btn {	
+	-webkit-border-radius: 0 6px 6px 0; 	
+	   -moz-border-radius: 0 6px 6px 0; 	
+	        border-radius: 0 6px 6px 0;
+}
+
 a {
 	color: #B94A48;
 	text-decoration: none;
