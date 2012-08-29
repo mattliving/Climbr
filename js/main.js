@@ -3,8 +3,7 @@ define(['jquery',
     'backbone',
     'bootstrap', 
     'jqueryui',
-    'google',
-    'gmap3'], function($, _, Backbone, Bootstrap, jqueryui, Google, Gmap3) {
+    'google'], function($, _, Backbone, Bootstrap, jqueryui, google) {
 
         var grades = ['3','4','5a','5b','5c','6a','6a+','6b','6b+','6c','6c+',
             '7a','7a+','7b','7b+','7c','7c+','8a','8a+','8b','8b+','8c','8c+',
@@ -29,8 +28,9 @@ define(['jquery',
             $("#gradeLabel .label.label-important").text("3 - 9b+");
 
             /* Google maps init */
-            var $map = $('#map');
-            $map.gmap3({
+            var $map = $('#map').get(0);
+            google.addMapToCanvas($map);
+            /*$map.gmap3({
                 action: 'init',
                 options: {
                     zoom: 6,
@@ -45,7 +45,7 @@ define(['jquery',
                     }
                     else handleNoGeolocation("Error");
                 }
-            });
+            });*/
 
             $('.dropdown-menu li a').click(function() {
                 $(this).addClass('active');
@@ -59,14 +59,14 @@ define(['jquery',
 
                 $('#map').css('height', (h - offsetTop));
                 //$('#friends').css('height', (.1*h - offsetTop));
-            }).resize();   
+            }).resize(); 
         });
 
         function calcGrade(value) {
             return grades[ 26 - (780 - value)/30 ];
         }
 
-        function geoLocate($map) {
+        /*function geoLocate($map) {
             // Try HTML5 geolocation
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
@@ -99,6 +99,6 @@ define(['jquery',
 
             var infowindow = new google.maps.InfoWindow(options);
             $map.gmap3('get').setCenter(options.position);
-        }
+        }*/
     }
 );
