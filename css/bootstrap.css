@@ -1590,15 +1590,15 @@ input.search-query {
 }
 
 .form-search .input-append .search-query {
-  -webkit-border-radius: 6px 0 0 6px;
-     -moz-border-radius: 6px 0 0 6px;
-          border-radius: 6px 0 0 6px;
+  -webkit-border-radius: 14px 0 0 14px;
+     -moz-border-radius: 14px 0 0 14px;
+          border-radius: 14px 0 0 14px;
 }
 
 .form-search .input-append .btn {
-  -webkit-border-radius: 0 6px 6px 0;
-     -moz-border-radius: 0 6px 6px 0;
-          border-radius: 0 6px 6px 0;
+  -webkit-border-radius: 0 14px 14px 0;
+     -moz-border-radius: 0 14px 14px 0;
+          border-radius: 0 14px 14px 0;
 }
 
 .form-search .input-prepend .search-query {
@@ -3257,7 +3257,6 @@ button.btn,
 input[type="submit"].btn {
   *padding-top: 3px;
   *padding-bottom: 3px;
-  *padding-left: 3px;
 }
 
 button.btn::-moz-focus-inner,
@@ -4156,9 +4155,9 @@ input[type="submit"].btn.btn-mini {
   font-size: 13px;
   font-weight: normal;
   line-height: 1;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
+  -webkit-border-radius: 15px;
+     -moz-border-radius: 15px;
+          border-radius: 15px;
 }
 
 .navbar-static-top {
