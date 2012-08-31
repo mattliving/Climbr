@@ -2699,7 +2699,7 @@ table .span24 {
   white-space: nowrap;
 }
 
-.dropdown-menu li > a:hover,
+/*.dropdown-menu li > a:hover,
 .dropdown-menu li > a:focus,
 .dropdown-submenu:hover > a {
   color: #ffffff;
@@ -2714,7 +2714,7 @@ table .span24 {
   background-repeat: repeat-x;
   filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
 }
-
+*/
 .dropdown-menu .active > a,
 .dropdown-menu .active > a:hover {
   color: #ffffff;

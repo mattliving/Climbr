@@ -38,29 +38,21 @@ body {
 	margin-right: 5px;
 }
 
-/*.dropdown-menu .active > a,
-.dropdown-menu .active > a:hover {
-	background-color: #B94A48;
-	/*background-color: #0088cc;*/
-  	/*background-color: #0081c2;
-}*/
-
-.dropdown-menu .active > a,
-.dropdown-menu .active > a:hover {
+.dropdown-menu li > a:hover,
+.dropdown-menu li > a:focus,
+.dropdown-submenu:hover > a {
   color: #ffffff;
   text-decoration: none;
   background-color: #B94A48;
-  background-color: #B94A48;
-  background-image: linear-gradient(to bottom, #B94A48, #0077b3);
-  background-image: -moz-linear-gradient(top, #B94A48, #0077b3);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#B94A48), to(#0077b3));
-  background-image: -webkit-linear-gradient(top, #B94A48, #0077b3);
-  background-image: -o-linear-gradient(top, #B94A48, #0077b3);
+  background-color: #833332;
+  background-image: -moz-linear-gradient(top, #B94A48, #833332);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#B94A48), to(#833332));
+  background-image: -webkit-linear-gradient(top, #B94A48, #833332);
+  background-image: -o-linear-gradient(top, #B94A48, #833332);
+  background-image: linear-gradient(to bottom, #B94A48, #833332);
   background-repeat: repeat-x;
-  outline: 0;
   filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
 }
-
 	
 .form-search .input-append .search-query {  	
 	-webkit-border-radius: 6px 0 0 6px; 	
@@ -99,6 +91,11 @@ input.search-query {
 
 .nav.nav-tabs.nav-stacked li {
 	/*padding: 10;*/
+}
+
+.icon-ok {
+	float: left;
+	margin-right: 5%;
 }
 
 .checkbox {

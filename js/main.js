@@ -1,9 +1,9 @@
 define(['jquery', 
     'underscore', 
     'backbone',
-    'bootstrap', 
-    'jqueryui',
-    'google'], function($, _, Backbone, Bootstrap, jqueryui, google) {
+    'bootstrap',
+    'jqueryui/slider',
+    'google'], function($, _, Backbone, Bootstrap, slider, google) {
 
         var grades = ['3','4','5a','5b','5c','6a','6a+','6b','6b+','6c','6c+',
             '7a','7a+','7b','7b+','7c','7c+','8a','8a+','8b','8b+','8c','8c+',
@@ -27,9 +27,13 @@ define(['jquery',
             });
             $("#gradeLabel .label.label-important").text("3 - 9b+");
 
+            $('.dropdown-menu li a').click(function() {
+                $(this).addClass('active');
+            });
+
             /* Google maps init */
-            var $map = $('#map').get(0);
-            google.addMapToCanvas($map);
+            var map = $('#map').get(0);
+            google.addMapToCanvas(map);
             /*$map.gmap3({
                 action: 'init',
                 options: {
@@ -47,12 +51,6 @@ define(['jquery',
                 }
             });*/
 
-            $('.dropdown-menu li a').click(function() {
-                $(this).addClass('active');
-            });
-
-            //geoLocate($map); 
-
             $(window).resize(function () {
                 var h = $('.container-fluid').height(),
                     offsetTop = 80; // Calculate the top offset
@@ -65,40 +63,5 @@ define(['jquery',
         function calcGrade(value) {
             return grades[ 26 - (780 - value)/30 ];
         }
-
-        /*function geoLocate($map) {
-            // Try HTML5 geolocation
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var pos = new google.maps.LatLng(position.coords.latitude,
-                                                     position.coords.longitude);
-
-                    $map.gmap3('get').setCenter(pos);
-                }, function() {
-                    handleNoGeolocation(true);
-                });
-            } else {
-                // Browser doesn't support Geolocation
-                handleNoGeolocation(false);
-            }
-        }
-
-        function handleNoGeolocation(errorFlag) {
-            if (errorFlag) {
-                var content = 'Error: The Geolocation service failed.';
-            } 
-            else {
-                var content = 'Error: Your browser doesn\'t support geolocation.';
-            }
-
-            var options = {
-                map: $map.gmap3('get'),
-                position: new google.maps.LatLng(60, 105),
-                content: content
-            };
-
-            var infowindow = new google.maps.InfoWindow(options);
-            $map.gmap3('get').setCenter(options.position);
-        }*/
     }
 );
