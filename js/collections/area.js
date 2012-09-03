@@ -23,4 +23,4 @@ define(['jquery',
     });
 
     return new Area;
-);
+});

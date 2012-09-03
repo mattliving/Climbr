@@ -12,7 +12,7 @@ define(['jquery',
             sidebarTemplate: _.template(sidebar),
 
             initialize: function() {
-                this.model.on('change', this.render, this);
+                //this.model.on('change', this.render, this);
                 this.render();
             },
 

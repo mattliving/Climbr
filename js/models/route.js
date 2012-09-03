@@ -1,7 +1,7 @@
 define(['jquery',
 	'underscore',
   	'backbone'], 
-  function(_, Backbone) {
+  function($, _, Backbone) {
 
 	var Route = Backbone.Model.extend({
 		defaults: {
@@ -13,13 +13,12 @@ define(['jquery',
 				sport: {
 					french: "",
 					british: ""
-
-				}
+				},
 				trad: "",
 				boulder: {
 					font: "",
-					hueco:: ""
-				}
+					hueco: ""
+				},
 				dws: ""
 			},
 			stars: null,
