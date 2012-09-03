@@ -5,6 +5,8 @@ define(['jquery',
 
     var Area = Backbone.Collection.extend({
 
+        url: "http://niflhel.local/climbr/data/routes.json",
+
         // Reference to this collection's model.
         model: Route,
 

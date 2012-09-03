@@ -2,22 +2,30 @@ define(['jquery',
     'underscore', 
     'backbone',
     'collections/area',
-    'text!templates/sidebar.html',
+    'views/route',
     'bootstrap'], 
-    function($, _, Backbone, Area, sidebar) {
+    function($, _, Backbone, Area, RouteView) {
 
         var SidebarView = Backbone.View.extend({
             el: $('#sidebar'),
 
-            sidebarTemplate: _.template(sidebar),
-
             initialize: function() {
-                //this.model.on('change', this.render, this);
+                this.collection = Area;
+                this.collection.fetch();
+                this.collection.bind('all', this.render, this);
                 this.render();
             },
 
+            renderRoute: function(route) {
+                var view = new RouteView({model: route});
+                this.$el.append(view.render().el);
+            },
+
             render: function() {
-                this.$el.html(this.sidebarTemplate);
+                var self = this;
+                _.each(this.collection.models, function (route) {
+                    self.renderRoute(route);
+                }, this);
                 return this;
             }
         });
