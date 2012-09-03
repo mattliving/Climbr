@@ -18,14 +18,19 @@ define(['jquery',
             subNavTemplate: _.template(subNav),
 
             events: {
-                "click .dropdown-menu li a": "toggleActive"
+                "click .dropdown-menu li a": "toggleActive",
+                "submit #searchField": "triggerSearch",
+                "click #searchBtn": "triggerSearch"
             },
 
             initialize: function() {
                 this.render();
+                this.searchField = $('#searchField');
 
                 /* Twitter Bootstrap init */
                 $('.dropdown-toggle').dropdown();
+
+                $('searchField').typeahead();
 
                 /* jQuery UI slider init */
                 $("#slider-range").slider({
@@ -58,6 +63,11 @@ define(['jquery',
                     $this.removeClass('active');
                     $this.html($this.text());
                 }
+            },
+
+            triggerSearch: function(e) {
+                e.preventDefault();
+                this.dispatcher.trigger("submit:search", this.searchField.val());
             },
 
             calcGrade: function(value) {

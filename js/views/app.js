@@ -3,17 +3,17 @@ define(['jquery',
     'backbone',
     'google',
     'views/nav',
-    'views/sidebar'], 
-    function($, _, Backbone, google, NavView, SidebarView) {
+    'views/sidebar',
+    'views/map'], 
+    function($, _, Backbone, google, NavView, SidebarView, MapView) {
 
         var AppView = Backbone.View.extend({
             el: $('body'),
 
             initialize: function() {
                 this.render();
-                this.initMap();
                 $(window).resize(function () {
-                var h = $('.container-fluid').height(),
+                    var h = $('.container-fluid').height(),
                     offsetTop = 80; 
 
                     $('#map').css('height', (h - offsetTop));
@@ -23,13 +23,9 @@ define(['jquery',
 
             render: function() {
                 var navView     = new NavView();
+                var mapView     = new MapView();
                 var sidebarView = new SidebarView();
                 return this;
-            },
-
-            initMap: function() {
-                var map = $('#map').get(0);
-                google.addMapToCanvas(map);
             }
         });
 
