@@ -1,0 +1,21 @@
+[
+	{
+		"name": "Stinson Beach",
+		"numberOfProblems": "25",
+		"rock": "Serpentine and Greywacke Sandstone",
+		"approach": "",
+		"difficulty": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V0-V11"
+			},
+			"dws": ""
+		},
+		"loc": [37.9011, -122.6443]
+	}
+]

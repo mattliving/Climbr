@@ -1,0 +1,152 @@
+[
+	{
+		"name": "Are You Experienced",
+		"area": "Stinson Beach",
+		"section": "Are You Experienced Boulder",
+		"style": "Bouldering",
+		"beta": "Sit start on the left side, then traverse right across the main face, conserving energy for the final crux. The final crux by itself is a three-star V4 stand start on a left hand sloper meatwrap gaston and a right hand knobby crimp. FA: Russell Bobzien.",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V10"
+			},
+			"dws": ""
+		},
+		"stars": 3,
+		"ticked": false,
+		"loc": [53.5025,-122.635278]
+	},
+	{
+		"name": "",
+		"section": "Are You Experienced Boulder",
+		"style": "Bouldering",
+		"beta": "Stand start left arete/corner. Or V5 sit start.",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V4"
+			},
+			"dws": ""
+		},
+		"stars": 2,
+		"ticked": false,
+		"loc": [53.5025,-122.635278]
+	},
+	{
+		"name": "Manitou",
+		"section": "Are You Experienced Boulder",
+		"style": "Bouldering",
+		"beta": "Sit start on left hand side-pull scoop and go up past right hand crimper gaston crux. Mantra Man V11 sit start same as Manitou but go up using the gaston as a crimper under-cling. Manitou Man V11 start Manitou finish Mantra Man. FA: Russell Bobzien.",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V11"
+			},
+			"dws": ""
+		},
+		"stars": 3,
+		"ticked": false,
+		"loc": [53.5025,-122.635278]
+	},
+	{
+		"name": "Little Wing",
+		"section": "Are You Experienced Boulder",
+		"style": "Bouldering",
+		"beta": "Sit start Mantra Man, go up using the big right hand sloper rail. V7 stand start same as Manitou and Mantra Man. When the sand is low or gone or if you just can't reach the good starting edge, a pad stack or cheat stone is legit.",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V9"
+			},
+			"dws": ""
+		},
+		"stars": 3,
+		"ticked": false,
+		"loc": [53.5025,-122.635278]
+	},
+	{
+		"name": "Central Scrutinizer",
+		"section": "Are You Experienced Boulder",
+		"style": "Bouldering",
+		"beta": "V5 sit start to direct topout or V4 sit start to right.",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V4 or V5"
+			},
+			"dws": ""
+		},
+		"stars": 2,
+		"ticked": false,
+		"loc": [53.5025,-122.635278]
+	},
+	{
+		"name": "Standard Route",
+		"section": "Are You Experienced Boulder",
+		"style": "Bouldering",
+		"rock": "",
+		"beta": "Stand start on under-cling side-pulls and climb up right into the slabby groove to topout. V3 sit start on left hand horn.",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V2"
+			},
+			"dws": ""
+		},
+		"stars": 3,
+		"ticked": false,
+		"loc": [53.5025,-122.635278]
+	},
+	{
+		"name": "Smiley Face",
+		"section": "Are You Experienced Boulder",
+		"style": "Bouldering",
+		"rock": "",
+		"beta": "Stand start on right hand crimper edge. V6 sit start on sloper.",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V5"
+			},
+			"dws": ""
+		},
+		"stars": 3,
+		"ticked": false,
+		"loc": [53.5025,-122.635278]
+	}
+]
