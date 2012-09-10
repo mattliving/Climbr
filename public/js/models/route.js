@@ -8,6 +8,7 @@ define(['jquery',
 
 	var Route = Backbone.Model.extend({
 		defaults: {
+			_id: null,
 			name: "",
 			area: "",
 			section: "",

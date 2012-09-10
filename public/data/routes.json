@@ -23,6 +23,7 @@
 	},
 	{
 		"name": "",
+		"area": "Stinson Beach",
 		"section": "Are You Experienced Boulder",
 		"style": "Bouldering",
 		"beta": "Stand start left arete/corner. Or V5 sit start.",
@@ -44,6 +45,7 @@
 	},
 	{
 		"name": "Manitou",
+		"area": "Stinson Beach",
 		"section": "Are You Experienced Boulder",
 		"style": "Bouldering",
 		"beta": "Sit start on left hand side-pull scoop and go up past right hand crimper gaston crux. Mantra Man V11 sit start same as Manitou but go up using the gaston as a crimper under-cling. Manitou Man V11 start Manitou finish Mantra Man. FA: Russell Bobzien.",
@@ -65,6 +67,7 @@
 	},
 	{
 		"name": "Little Wing",
+		"area": "Stinson Beach",
 		"section": "Are You Experienced Boulder",
 		"style": "Bouldering",
 		"beta": "Sit start Mantra Man, go up using the big right hand sloper rail. V7 stand start same as Manitou and Mantra Man. When the sand is low or gone or if you just can't reach the good starting edge, a pad stack or cheat stone is legit.",
@@ -86,6 +89,7 @@
 	},
 	{
 		"name": "Central Scrutinizer",
+		"area": "Stinson Beach",
 		"section": "Are You Experienced Boulder",
 		"style": "Bouldering",
 		"beta": "V5 sit start to direct topout or V4 sit start to right.",
@@ -107,6 +111,7 @@
 	},
 	{
 		"name": "Standard Route",
+		"area": "Stinson Beach",
 		"section": "Are You Experienced Boulder",
 		"style": "Bouldering",
 		"rock": "",
@@ -129,6 +134,7 @@
 	},
 	{
 		"name": "Smiley Face",
+		"area": "Stinson Beach",
 		"section": "Are You Experienced Boulder",
 		"style": "Bouldering",
 		"rock": "",

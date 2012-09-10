@@ -1,23 +1,24 @@
 define(['jquery', 
     'underscore', 
     'backbone',
-    'collections/area',
     'text!templates/route.html'], 
-    function($, _, Backbone, Area, Route) {
+    function($, _, Backbone, Route) {
 
     	var RouteView = Backbone.View.extend({
     
 		    tagName: "li",
 
+		    className: "route",
+
 		    routeTemplate: _.template(Route),
 
 		    events: {
-		    	"click input.checkbox": "toggleTicked"
+		    	"click input[type='checkbox']": "toggleTicked"
 		    },
 
-		    initialize: function() {            
-		        this.model.bind('change', this.render);
-		        this.model.bind('destroy', this.destroy);
+		    initialize: function() {           
+		        this.model.on('change', this.render, this);
+		        this.model.on('destroy', this.destroy, this);
 		    },
 
 		    render: function() {   
@@ -26,11 +27,14 @@ define(['jquery',
 		    },
 
 		    toggleTicked: function() {
-		    	this.model.toggle();
+		    	console.log("TICKED");
+		    	this.model.toggleTicked();
 		    },
 
-		    clear: function() {
-		    	this.model.clear();
+		    destroy: function() {
+		    	this.remove();
+		    	this.unbind();
+		    	this.model.destroy();
 		    }
 		});
 

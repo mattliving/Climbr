@@ -23,8 +23,8 @@ define(['jquery',
 
             render: function() {
                 var navView     = new NavView();
-                var mapView     = new MapView();
                 var sidebarView = new SidebarView();
+                var mapView     = new MapView();
                 return this;
             }
         });

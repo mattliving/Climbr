@@ -1,6 +1,6 @@
 [
 	{
-		"name": "Stinson Beach",
+		"name": "Mickey's Beach",
 		"numberOfProblems": "25",
 		"rock": "Serpentine and Greywacke Sandstone",
 		"approach": "",
@@ -16,6 +16,6 @@
 			},
 			"dws": ""
 		},
-		"loc": [37.9011, -122.6443]
+		"loc": [37.9011, -118.6443]
 	}
 ]

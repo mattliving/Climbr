@@ -1,34 +1,87 @@
 define(['jquery', 
     'underscore', 
     'backbone',
-    'collections/area',
+    'collections/areas',
+    'collections/routes',
+    'views/area',
     'views/route',
     'bootstrap'], 
-    function($, _, Backbone, Area, RouteView) {
+    function($, _, Backbone, Areas, Routes, AreaView, RouteView) {
 
         var SidebarView = Backbone.View.extend({
             el: $('#sidebar'),
 
-            //areaTemplate = _.template(AreaTemplate);
-
             initialize: function() {
-                this.collection = Area;
-                //this.collection.fetch();
-                this.collection.bind('all', this.render, this);
-                this.render();
+                this.areaViews = [];
+                this.routeViews = [];
+                Areas.bind('all', this.renderAreas, this);
+                Routes.bind('all', this.renderRoutes, this);
+
+                this.dispatcher.bind("change:areas", function(MapAreas) {
+                    Areas.reset(MapAreas.models);
+                });
+                this.dispatcher.bind("toggle:area", function(view) {
+                    this.toggle(view);
+                }, this);
             },
 
-            render: function() {
+            events: {
+            },
+
+            renderAreas: function() {
+                this.$el.empty();
                 var self = this;
-                _.each(this.collection.models, function(route) {
-                    self.renderRoute(route);
+                _.each(Areas.models, function(area) {
+                    self.renderArea(area);
                 }, this);
+
+                return this;
+            },
+
+            renderArea: function(area) {
+                var view = new AreaView({model: area});
+                this.$el.append(view.render().el);
+                this.areaViews.push(view);
+
+                return this;
+            },
+
+            renderRoutes: function() {
+                var self = this;
+                _.each(Routes.models, function(route) {
+                    self.renderRoute(route);
+                }, this);  
+
                 return this;
             },
 
             renderRoute: function(route) {
                 var view = new RouteView({model: route});
                 this.$el.append(view.render().el);
+                this.routeViews.push(view);
+
+                return this;
+            },
+
+            toggle: function(view) {
+                if (view.$el.hasClass('toggled')) {
+                    view.$el.removeClass('toggled');
+                    Routes.reset();
+                    this.clear();
+                }
+                else {
+                    view.$el.addClass('toggled');
+                    Routes.fetch({
+                        data: { area: view.model.get('name') }
+                    });
+                }
+            },
+
+            clear: function() {
+                _(this.routeViews).each(function(view) {
+                    view.close();
+                });
+                this.routeViews = [];
             }
         });
 

@@ -8,11 +8,12 @@ define(['jquery',
 
 	var Area = Backbone.Model.extend({
 		defaults: {
+			_id: null,
 			name: "",
 			numberOfProblems: "",
 			rock: "",
 			approach: "",
-			difficulty: {
+			grade: {
 				sport: {
 					french: "",
 					british: ""
@@ -24,7 +25,7 @@ define(['jquery',
 				},
 				dws: ""
 			},
-			loc: [null,null]
+			loc: [null, null]
 		},
 
 		clear: function() {

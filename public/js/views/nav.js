@@ -32,6 +32,7 @@ define(['jquery',
 
                 $('searchField').typeahead();
 
+                var self = this;
                 /* jQuery UI slider init */
                 $("#slider-range").slider({
                     range: true,
@@ -40,8 +41,8 @@ define(['jquery',
                     max: 780,
                     values: [ 0, 780 ],
                     slide: function( event, ui ) {
-                        $("#gradeLabel .label.label-important").text(this.calcGrade(ui.values[ 0 ]) + " - " 
-                            + this.calcGrade(ui.values[ 1 ]));
+                        $("#gradeLabel .label.label-important").text(self.calcGrade(ui.values[ 0 ]) + " - " 
+                            + self.calcGrade(ui.values[ 1 ]));
                     }
                 });
                 $("#gradeLabel .label.label-important").text("3 - 9b+");
@@ -71,7 +72,7 @@ define(['jquery',
             },
 
             calcGrade: function(value) {
-                return grades[ 26 - (780 - value)/30 ];
+                return this.grades[ 26 - (780 - value)/30 ];
             }
         });
 

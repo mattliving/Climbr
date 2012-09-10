@@ -5,7 +5,6 @@ var application_root = __dirname,
 
 var app = express();
 
-// model
 mongoose.connect('mongodb://localhost/climbr');
 
 var Area = mongoose.model('Area', new mongoose.Schema({
@@ -13,7 +12,7 @@ var Area = mongoose.model('Area', new mongoose.Schema({
     numberOfProblems: String,
     rock: String,
     approach: String,
-    difficulty: {
+    grade: {
         sport: {
             french: String,
             british: String
@@ -49,8 +48,7 @@ var Route = mongoose.model('Route', new mongoose.Schema({
     },
     stars: Number,
     ticked: Boolean,
-    loc: [Number, Number],
-    order: Number
+    loc: [Number, Number]
 }));
 
 app.configure(function() {
@@ -74,6 +72,7 @@ app.get('/api/areas', function(req, res) {
         if (!err) {
             return res.json(area);
         }
+        else console.log(err);
     });
 });
 
@@ -85,33 +84,27 @@ app.get('/api/areas/:id', function(req, res) {
     });
 });
 
-app.put('/api/areas/:id', function(req, res) {
-    return Area.findById(req.params.id, function(err, area) {
-        area.text = req.body.text;
-        area.done = req.body.done;
-        area.order = req.body.order;
-        return area.save(function(err) {
-            if (!err) {
-                console.log("updated");
-            }
-            return res.json(area);
-        });
+app.get('/api/routes', function(req, res) {
+    return Route.find().where('area').equals(req.query.area)
+    .exec(function(err, route) {
+        if (!err) {
+            return res.json(route);
+        }
+        else console.log(err);
     });
 });
 
-app.post('/api/areas', function(req, res) {
-    var area;
-    area = new Area({
-        text: req.body.text,
-        done: req.body.done,
-        order: req.body.order
+app.put('/api/routes/:id', function(req, res) {
+    console.log(req);
+    return Route.findById(req.params.id, function(err, route) {
+        route.ticked = req.body.ticked;
+        return route.save(function(err) {
+            if (!err) {
+                console.log("updated");
+            }
+            return res.json(route);
+        });
     });
-    area.save(function(err) {
-        if (!err) {
-            return console.log("created");
-        }
-    });
-    return res.json(area);
 });
 
 app.delete('/api/areas/:id', function(req, res) {

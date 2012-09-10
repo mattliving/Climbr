@@ -20,7 +20,7 @@ require.config({
     backbone: "libs/backbone/backbone-min",
     text: "libs/require/text",
     bootstrap: "libs/bootstrap/bootstrap-min",
-    jqueryui: "libs/jqueryui",
+    jqueryui: "libs/jquery/jqueryui-1.8.23/jqueryui",
     google: "libs/maps/google"
   }
 
@@ -28,5 +28,13 @@ require.config({
 
 require(['backbone', 'views/app'], function(Backbone, AppView) {
   Backbone.View.prototype.dispatcher = _.extend({}, Backbone.Events);
+  Backbone.View.prototype.close = function() {
+    if (this.clear) {
+        this.clear();
+    }
+    this.remove();
+    this.unbind();
+  };
+
   var App = new AppView();
 });

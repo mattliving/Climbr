@@ -1,9 +1,9 @@
 define(['jquery', 
     'underscore', 
     'backbone',
-    'collections/area',
+    'collections/areas',
     "async!http://maps.google.com/maps/api/js?key=AIzaSyAjNafop09-jd2jkly8d05QaPcOa0WddX8&sensor=true!callback"], 
-    function($, _, Backbone, Area) {
+    function($, _, Backbone, Areas) {
 
         var MapView = Backbone.View.extend({
             el: $('#map'),
@@ -12,16 +12,34 @@ define(['jquery',
             },
 
             initialize: function() {
+                this.markers = [],
+                Areas.bind('all', this.render, this);  
+                var self = this;
                 this.initMap(function(bounds) {
                     /* Need to request all areas within map bounds 
                        from server and populate this collection */
-                    this.collection = Area;
-                    this.collection.fetch({
+                    Areas.fetch({
                         data: { ll: bounds.getSouthWest().toUrlValue().split(','),
                                 ur: bounds.getNorthEast().toUrlValue().split(',') }
                     });
+                    self.dispatcher.trigger("change:areas", Areas);
                 });
             },
+
+            render: function() {
+                this.markers.length = 0;
+                _.each(Areas.models, function(area) {
+                    var latLng = new google.maps.LatLng(area.get('loc')[0], 
+                        area.get('loc')[1]);
+                    var marker = new google.maps.Marker({
+                        position: latLng,
+                        draggable: false,
+                        map: this.map
+                    });
+                    this.markers.push(marker);
+                }, this);
+            },
+
             initMap: function(callback) {
                 var self = this;
                 this.dispatcher.bind("submit:search", function(address) {
@@ -29,7 +47,7 @@ define(['jquery',
                 });
                 var options = {
                     center: new google.maps.LatLng( -34.397, 150.644 ),
-                    zoom: 8,
+                    zoom: 7,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
 
@@ -42,20 +60,18 @@ define(['jquery',
                     callback(map.getBounds());
                 });
             },
+
             codeAddress: function(map, geocoder, address) {
                 geocoder.geocode( { 'address': address}, function(results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
                         map.setCenter(results[0].geometry.location);
-                        var marker = new google.maps.Marker({
-                            map: map,
-                            position: results[0].geometry.location
-                        });
                     } 
                     else {
                         alert('Geocode was not successful for the following reason: ' + status);
                     }
                 });
             },
+
             geoLocate: function(map) {
                 // Try HTML5 geolocation
                 if (navigator.geolocation) {
@@ -73,6 +89,7 @@ define(['jquery',
                     this.handleNoGeolocation(map, false);
                 }
             },
+
             handleNoGeolocation: function(map, errorFlag) {
                 if (errorFlag) {
                     var content = 'Error: The Geolocation service failed.';
@@ -90,11 +107,6 @@ define(['jquery',
                 var infowindow = new google.maps.InfoWindow(options);
                 map.setCenter(options.center);
             }
-
-            // render: function() {
-            //     this.$el.append(this.MapTemplate);
-            //     return this;
-            // }
         });
 
         return MapView;
