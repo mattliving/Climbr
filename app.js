@@ -63,6 +63,28 @@ app.get('/', function(req, res) {
 
 });
 
+/* Build the typeahead source array from the names of the areas and routes. 
+   Two queries and another loop through the data array - needs optimization. */
+app.get('/api/typeahead', function(req, res) {
+    var source = [];
+
+    return Area.find({}, {name: 1, _id: 0}).exec(function(err, area) {
+        if (!err) {
+            return Route.find({}, {name: 1, _id: 0}).exec(function(err, route) {
+                if (!err) {
+                    var data = area.concat(route);
+                    for (var i in data) {
+                        source.push(data[i]['name']);
+                    }
+                    return res.send(source);
+                }
+                else console.log(err);
+            })
+        }
+        else console.log(err);
+    })
+});
+
 app.get('/api/areas', function(req, res) {
     var lowerLeft  = [parseFloat(req.query.ll[0]), parseFloat(req.query.ll[1])];
     var upperRight = [parseFloat(req.query.ur[0]), parseFloat(req.query.ur[1])];

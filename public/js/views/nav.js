@@ -30,7 +30,7 @@ define(['jquery',
                 /* Twitter Bootstrap init */
                 $('.dropdown-toggle').dropdown();
 
-                $('searchField').typeahead();
+                this.initTypeahead();
 
                 var self = this;
                 /* jQuery UI slider init */
@@ -46,6 +46,17 @@ define(['jquery',
                     }
                 });
                 $("#gradeLabel .label.label-important").text("3 - 9b+");
+            },
+
+            initTypeahead: function() {
+                $.ajax({
+                    url: '/api/typeahead', type: 'get',
+                    success: function(data) {
+                        $('#searchField').typeahead({
+                            source: data
+                        });
+                    }
+                });
             },
 
             render: function() {
