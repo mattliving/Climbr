@@ -1,10 +1,11 @@
 define(['jquery', 
     'underscore', 
     'backbone',
-    'text!templates/route.html'], 
-    function($, _, Backbone, Route) {
+    'text!templates/route.html',
+    'views/baseview'], 
+    function($, _, Backbone, Route, BaseView) {
 
-    	var RouteView = Backbone.View.extend({
+    	var RouteView = BaseView.extend({
     
 		    tagName: "li",
 
@@ -29,12 +30,6 @@ define(['jquery',
 		    toggleTicked: function() {
 		    	console.log("TICKED");
 		    	this.model.toggleTicked();
-		    },
-
-		    destroy: function() {
-		    	this.remove();
-		    	this.unbind();
-		    	this.model.destroy();
 		    }
 		});
 

@@ -1,10 +1,11 @@
 define(['jquery', 
     'underscore', 
     'backbone',
-    'text!templates/area.html'], 
-    function($, _, Backbone, Area) {
+    'text!templates/area.html',
+    'views/baseview'], 
+    function($, _, Backbone, Area, BaseView) {
 
-    	var AreaView = Backbone.View.extend({
+    	var AreaView = BaseView.extend({
     
 		    tagName: "li",
 
@@ -28,11 +29,6 @@ define(['jquery',
 
 		    toggle: function() {
 		    	this.dispatcher.trigger("toggle:area", this);
-		    },
-
-		    destroy: function() {
-		    	this.remove();
-		    	this.model.destroy();
 		    }
 		});
 

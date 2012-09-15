@@ -3,12 +3,13 @@ define(['jquery',
     'backbone',
     'collections/areas',
     'collections/routes',
+    'views/baseview',
     'views/area',
     'views/route',
     'bootstrap'], 
-    function($, _, Backbone, Areas, Routes, AreaView, RouteView) {
+    function($, _, Backbone, Areas, Routes, BaseView, AreaView, RouteView) {
 
-        var SidebarView = Backbone.View.extend({
+        var SidebarView = BaseView.extend({
             el: $('#sidebar'),
 
             initialize: function() {
@@ -77,7 +78,8 @@ define(['jquery',
                 }
             },
 
-            clear: function() {
+            cleanup: function() {
+                this.super.cleanup();
                 _(this.routeViews).each(function(view) {
                     view.close();
                 });

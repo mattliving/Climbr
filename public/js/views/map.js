@@ -2,10 +2,11 @@ define(['jquery',
     'underscore', 
     'backbone',
     'collections/areas',
-    "async!http://maps.google.com/maps/api/js?key=AIzaSyAjNafop09-jd2jkly8d05QaPcOa0WddX8&sensor=true!callback"], 
-    function($, _, Backbone, Areas) {
+    'views/baseview',
+    'goog!maps,3,other_params:[libraries=places&key=AIzaSyAjNafop09-jd2jkly8d05QaPcOa0WddX8&sensor=true]'], 
+    function($, _, Backbone, Areas, BaseView) {
 
-        var MapView = Backbone.View.extend({
+        var MapView = BaseView.extend({
             el: $('#map'),
 
             events: {
@@ -24,6 +25,8 @@ define(['jquery',
                     });
                     self.dispatcher.trigger("change:areas", Areas);
                 });
+
+                //this.initPlaces();
             },
 
             render: function() {
@@ -41,12 +44,9 @@ define(['jquery',
             },
 
             initMap: function(callback) {
-                var self = this;
-                this.dispatcher.bind("submit:search", function(address) {
-                    self.codeAddress(map, geocoder, address);
-                });
                 var options = {
                     center: new google.maps.LatLng( -34.397, 150.644 ),
+                    minZoom: 4,
                     zoom: 7,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
@@ -59,12 +59,34 @@ define(['jquery',
                 google.maps.event.addListener(map, 'bounds_changed', function() {
                     callback(map.getBounds());
                 });
+
+                var self = this;
+                this.dispatcher.bind("submit:search", function(address) {
+                    self.codeAddress(map, geocoder, address);
+                });
+            },
+
+            initPlaces: function() {
+                var sw = new google.maps.LatLng(-90, -180);
+                var ne = new google.maps.LatLng(90, 180);
+                var request = {
+                    bounds: new google.maps.LatLngBounds(sw, ne),
+                    types: ['country']
+                };
+                var service = new google.maps.places.PlacesService(this.map);
+                service.search(request, function(places, status) {
+                    if (status == google.maps.places.PlacesServiceStatus.OK) {
+                        self.dispatcher.trigger("init:places", places);
+                    }
+                });
             },
 
             codeAddress: function(map, geocoder, address) {
                 geocoder.geocode( { 'address': address}, function(results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
-                        map.setCenter(results[0].geometry.location);
+                        map.panTo(results[0].geometry.location);
+                        // console.log(results[0].geometry.viewport);
+                        // map.setZoom(9);
                     } 
                     else {
                         alert('Geocode was not successful for the following reason: ' + status);

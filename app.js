@@ -51,6 +51,12 @@ var Route = mongoose.model('Route', new mongoose.Schema({
     loc: [Number, Number]
 }));
 
+var Country = mongoose.model('Country', new mongoose.Schema({
+    countryName: String,
+    capital: String,
+    continentName: String
+}));
+
 app.configure(function() {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
@@ -64,7 +70,7 @@ app.get('/', function(req, res) {
 });
 
 /* Build the typeahead source array from the names of the areas and routes. 
-   Two queries and another loop through the data array - needs optimization. */
+   Two queries and another loop through the data array - needs optimization */
 app.get('/api/typeahead', function(req, res) {
     var source = [];
 
@@ -76,7 +82,15 @@ app.get('/api/typeahead', function(req, res) {
                     for (var i in data) {
                         source.push(data[i]['name']);
                     }
-                    return res.send(source);
+                    return Country.find({}, {countryName: 1, _id: 0}).exec(function(err, country) {
+                        if (!err) {
+                            for (var i in country) {
+                                source.push(country[i]['countryName']);
+                            }
+                            return res.send(source);
+                        }
+                        else console.log(err);
+                    })
                 }
                 else console.log(err);
             })

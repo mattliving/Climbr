@@ -16,6 +16,8 @@ require.config({
   paths: {
 
     async: 'libs/require/async',
+    propertyParser: 'libs/require/propertyParser',
+    goog: 'libs/require/goog',
     underscore: "libs/underscore/underscore-min",
     backbone: "libs/backbone/backbone-min",
     text: "libs/require/text",

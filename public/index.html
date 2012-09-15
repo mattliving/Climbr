@@ -49,7 +49,7 @@
 	  </div>
 	</div>	
 
-	<div class="modal hide fade" id="myModal">
+	<div class="modal hide fade" id="loginModal">
 		<div class="modal-header">
 			<a class="close" data-dismiss="modal">×</a>
 			<h3>Sign in to Climbr</h3>
@@ -59,21 +59,60 @@
 			  <div class="control-group">
 			    <label class="control-label" for="inputEmail">Email</label>
 			    <div class="controls">
-			      <input type="text" id="inputEmail" placeholder="Email">
+			      <input name="email" type="text" id="inputEmail" placeholder="Email">
 			    </div>
 			  </div>
 			  <div class="control-group">
 			    <label class="control-label" for="inputPassword">Password</label>
 			    <div class="controls">
-			      <input type="password" id="inputPassword" placeholder="Password">
+			      <input name="password" type="password" id="inputPassword" placeholder="Password">
 			    </div>
 			  </div>
 			  <div class="control-group">
-			     	<div class="form-actions">
-						  <button type="submit" class="btn btn-primary">Login</button>
-						  <button type="button" class="btn btn-primary">Connect using <strong>Facebook</strong></button>
-						  <!-- <a href="#fbconnect"><img src="img/Large_fb_connect.png"/></a> -->
-					  </div>
+		     	<div class="form-actions">
+					  <button type="submit" class="btn btn-primary">Login</button>
+					  <button type="button" class="btn btn-primary">Connect using <strong>Facebook</strong></button>
+					  <!-- <a href="#fbconnect"><img src="img/Large_fb_connect.png"/></a> -->
+				</div>
+			  </div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">Close</a>
+		</div>
+	</div>
+
+	<div class="modal hide fade" id="registerModal">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h3>Sign up to Climbr, it's free!</h3>
+		</div>
+		<div class="modal-body">
+			<form class="form-horizontal">
+				<div class="control-group">
+			    <label class="control-label" for="inputUsername">Username</label>
+			    <div class="controls">
+			      <input name="username" type="text" id="inputUsername" placeholder="Username">
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="inputEmail">Email</label>
+			    <div class="controls">
+			      <input name="email" type="text" id="inputEmail" placeholder="Email">
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="inputPassword">Password</label>
+			    <div class="controls">
+			      <input name="password" type="password" id="inputPassword" placeholder="Password">
+			    </div>
+			  </div>
+			  <div class="control-group">
+		     	<div class="form-actions">
+					  <button type="submit" class="btn btn-primary">Sign up</button>
+					  <button type="button" class="btn btn-primary">Connect using <strong>Facebook</strong></button>
+					  <!-- <a href="#fbconnect"><img src="img/Large_fb_connect.png"/></a> -->
+				</div>
 			  </div>
 			</form>
 		</div>

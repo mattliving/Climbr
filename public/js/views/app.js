@@ -1,13 +1,13 @@
 define(['jquery', 
     'underscore', 
     'backbone',
-    'google',
+    'views/baseview',
     'views/nav',
     'views/sidebar',
-    'views/map'], 
-    function($, _, Backbone, google, NavView, SidebarView, MapView) {
+    'views/map2'], 
+    function($, _, Backbone, BaseView, NavView, SidebarView, MapView) {
 
-        var AppView = Backbone.View.extend({
+        var AppView = BaseView.extend({
             el: $('body'),
 
             initialize: function() {
