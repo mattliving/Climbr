@@ -10,15 +10,15 @@ require.config
       exports: "Backbone"
 
   paths:
-    async: "libs/require/async"
-    propertyParser: "libs/require/propertyParser"
-    goog: "libs/require/goog"
-    underscore: "libs/underscore/underscore-min"
-    backbone: "libs/backbone/backbone-min"
-    text: "libs/require/text"
-    bootstrap: "libs/bootstrap/bootstrap-min"
-    jqueryui: "libs/jquery/jqueryui-1.8.23/jqueryui"
-    google: "libs/maps/google"
+    async: "../require/async"
+    propertyParser: "../require/propertyParser"
+    goog: "../require/goog"
+    underscore: "../underscore/underscore-min"
+    backbone: "../backbone/backbone-min"
+    text: "../require/text"
+    bootstrap: "../bootstrap/bootstrap-min"
+    jqueryui: "../jquery/jqueryui-1.8.23/jqueryui"
+    google: "../maps/google"
 
 require ["backbone", "views/app"], (Backbone, AppView) ->
 

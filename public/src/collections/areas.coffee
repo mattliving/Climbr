@@ -1,7 +1,7 @@
 define ["jquery", "underscore", "backbone", "models/area"]
 , ($, _, Backbone, Area) ->
   
-  Areas = Backbone.Collection.extend(
+  class Areas extends Backbone.Collection
     
     #url: "http://niflhel.local/climbr/data/routes.json",
     url: "http://localhost:3000/api/areas"
@@ -10,5 +10,5 @@ define ["jquery", "underscore", "backbone", "models/area"]
     
     comparator: (area) ->
       area.get "name"
-  )
+
   new Areas

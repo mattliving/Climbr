@@ -4,21 +4,21 @@ define ["jquery",
         "collections/areas", 
         "collections/routes", 
         "views/baseview", 
+        "views/routes", 
         "views/area", 
-        "views/route", "bootstrap"]
-        , ($, _, Backbone, Areas, Routes, BaseView, AreaView, RouteView) ->
+        "bootstrap"]
+        , ($, _, Backbone, Areas, Routes, BaseView, RoutesView, AreaView) ->
   
-  SidebarView = BaseView.extend(
+  class SidebarView extends BaseView
 
     el: $("#sidebar")
 
     events: {}
 
     initialize: ->
-      @areaViews = []
+      @areaViews  = []
       @routeViews = []
-      Areas.bind "all", @renderAreas, this
-      Routes.bind "all", @renderRoutes, this
+      Areas.bind "all", @render, this
 
       @dispatcher.bind "change:areas", (MapAreas) ->
         Areas.reset MapAreas.models
@@ -27,11 +27,10 @@ define ["jquery",
         @toggle view
       ), this
 
-    renderAreas: ->
+    render: ->
       @$el.empty()
-      self = this
-      _.each Areas.models, ((area) ->
-        self.renderArea area
+      _.each Areas.models, ((area) =>
+        @renderArea area
       ), this
       this
 
@@ -41,34 +40,23 @@ define ["jquery",
       @areaViews.push view
       this
 
-    renderRoutes: ->
-      self = this
-      _.each Routes.models, ((route) ->
-        self.renderRoute route
-      ), this
-      this
-
-    renderRoute: (route) ->
-      view = new RouteView(model: route)
-      @$el.append view.render().el
-      @routeViews.push view
-      this
-
     toggle: (view) ->
       if view.$el.hasClass("toggled")
         view.$el.removeClass "toggled"
-        Routes.reset()
-        @clear()
+        @routeViews[view.model.cid]?.hide()
       else
         view.$el.addClass "toggled"
-        Routes.fetch data:
-          area: view.model.get("name")
+        if not @routeViews[view.model.cid]?
+          subview = new RoutesView el: @el, collection: Routes
+          subview.collection.fetch data:
+            area: view.model.get("name")
+          @routeViews[view.model.cid] = subview
+        else 
+          @routeViews[view.model.cid].hide()
 
     cleanup: ->
       super
-      _(@routeViews).each (view) ->
-        view.close()
+      _(@areaViews).each (view) ->
+        view.cleanup()
 
-      @routeViews = []
-  )
   SidebarView

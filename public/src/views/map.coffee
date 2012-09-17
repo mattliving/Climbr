@@ -5,7 +5,7 @@ define ["jquery",
         "views/baseview", "goog!maps,3,other_params:[libraries=places&key=AIzaSyAjNafop09-jd2jkly8d05QaPcOa0WddX8&sensor=true]"]
         , ($, _, Backbone, Areas, BaseView) ->
   
-  MapView = BaseView.extend(
+  class MapView extends BaseView
 
     el: $("#map")
     
@@ -105,5 +105,5 @@ define ["jquery",
 
       infowindow = new google.maps.InfoWindow(options)
       map.setCenter options.center
-  )
+
   MapView

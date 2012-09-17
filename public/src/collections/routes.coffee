@@ -1,7 +1,7 @@
 define ["jquery", "underscore", "backbone", "models/route"]
 , ($, _, Backbone, Route) ->
   
-  Routes = Backbone.Collection.extend(
+  class Routes extends Backbone.Collection
 
     url: "http://localhost:3000/api/routes"
     
@@ -9,5 +9,5 @@ define ["jquery", "underscore", "backbone", "models/route"]
     
     comparator: (route) ->
       route.get "name"
-  )
+
   new Routes

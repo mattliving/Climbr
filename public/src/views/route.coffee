@@ -4,7 +4,8 @@ define ["jquery",
         "text!templates/route.html", 
         "views/baseview"]
         , ($, _, Backbone, Route, BaseView) ->
-  RouteView = BaseView.extend(
+
+  class RouteView extends BaseView
 
     tagName: "li"
 
@@ -24,7 +25,6 @@ define ["jquery",
       this
 
     toggleTicked: ->
-      console.log "TICKED"
       @model.toggleTicked()
-  )
+
   RouteView

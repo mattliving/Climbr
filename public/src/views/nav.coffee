@@ -1,11 +1,13 @@
 define ["jquery", 
         "underscore", 
         "backbone", 
+        "views/baseview",
         "text!templates/mainNav.html", 
         "text!templates/subNav.html", 
-        "bootstrap", "jqueryui/slider"]
-        , ($, _, Backbone, mainNav, subNav) ->
-  NavView = Backbone.View.extend(
+        "bootstrap", 
+        "jqueryui/slider"]
+        , ($, _, Backbone, BaseView, mainNav, subNav) ->
+  class NavView extends BaseView
 
     el: $("body")
 
@@ -67,5 +69,5 @@ define ["jquery",
 
     calcGrade: (value) ->
       @grades[26 - (780 - value) / 30]
-  )
+
   NavView

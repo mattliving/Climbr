@@ -1,6 +1,6 @@
 define ["jquery", "underscore", "backbone"], ($, _, Backbone) ->
   
-  BaseView = Backbone.View.extend(
+  class BaseView extends Backbone.View
     
     initialize: ->
       @model.on "change", @render, this
@@ -9,12 +9,12 @@ define ["jquery", "underscore", "backbone"], ($, _, Backbone) ->
     postInitialize: ->
 
     postRender: ->
+      #this.$el.html(this.routeTemplate(this.model.toJSON()));
+      #return this;
     
-    #this.$el.html(this.routeTemplate(this.model.toJSON()));
-    #return this;
     cleanup: ->
       @undelegateEvents()
-      @model.off null, null, this
+      #@model.off null, null, this
       @remove()
-  )
+      
   BaseView

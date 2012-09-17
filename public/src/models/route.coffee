@@ -2,7 +2,7 @@
 # climbing area may have one or more routes 
 define ["jquery", "underscore", "backbone"], ($, _, Backbone) ->
   
-  Route = Backbone.Model.extend(
+  class Route extends Backbone.Model
     
     defaults:
       _id: null
@@ -32,5 +32,5 @@ define ["jquery", "underscore", "backbone"], ($, _, Backbone) ->
 
     clear: ->
       @destroy()
-  )
+
   Route

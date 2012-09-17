@@ -4,7 +4,7 @@ define ["jquery",
         "views/baseview", 
         "views/nav", "views/sidebar", "views/map"]
         , ($, _, Backbone, BaseView, NavView, SidebarView, MapView) ->
-  AppView = BaseView.extend(
+  class AppView extends BaseView
     el: $("body")
     initialize: ->
       @render()
@@ -21,5 +21,4 @@ define ["jquery",
       sidebarView = new SidebarView()
       mapView     = new MapView()
       this
-  )
   AppView

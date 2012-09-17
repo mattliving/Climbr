@@ -2,7 +2,7 @@
 # subsections, which are comprised of a collection of one or more routes 
 define ["jquery", "underscore", "backbone"], ($, _, Backbone) ->
   
-  Area = Backbone.Model.extend(
+  class Area extends Backbone.Model
     defaults:
       _id: null
       name: ""
@@ -25,5 +25,5 @@ define ["jquery", "underscore", "backbone"], ($, _, Backbone) ->
 
     clear: ->
       @destroy()
-  )
+
   Area

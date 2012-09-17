@@ -5,7 +5,8 @@ define ["jquery",
         "views/baseview"]
         , ($, _, Backbone, Area, BaseView) ->
   
-  AreaView = BaseView.extend(
+  class AreaView extends BaseView
+    
     tagName: "li"
 
     className: "area"
@@ -14,6 +15,8 @@ define ["jquery",
 
     events:
       click: "toggle"
+
+    subview: {}
 
     initialize: ->
       @model.bind "change", @render
@@ -25,5 +28,5 @@ define ["jquery",
 
     toggle: ->
       @dispatcher.trigger "toggle:area", this
-  )
+      
   AreaView
