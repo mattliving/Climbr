@@ -22,10 +22,14 @@
       };
 
       RoutesView.prototype.render = function() {
-        var _this = this;
-        _.each(this.collection.models, (function(route) {
-          return _this.renderRoute(route);
-        }), this);
+        var route, _i, _len, _ref;
+        if (!(this.collection.models != null)) {
+          _ref = this.collection.models;
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            route = _ref[_i];
+            this.renderRoute(route);
+          }
+        }
         return this;
       };
 
@@ -34,7 +38,7 @@
         view = new RouteView({
           model: route
         });
-        this.$el.append(view.render().el);
+        this.$el.after(view.render().el);
         this.routeViews.push(view);
         return this;
       };
@@ -65,10 +69,15 @@
       };
 
       RoutesView.prototype.cleanup = function() {
+        var view, _i, _len, _ref, _results;
         RoutesView.__super__.cleanup.apply(this, arguments);
-        return _(this.routeViews).each(function(view) {
-          return view.cleanup();
-        });
+        _ref = this.routeViews;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          view = _ref[_i];
+          _results.push(view.cleanup());
+        }
+        return _results;
       };
 
       return RoutesView;

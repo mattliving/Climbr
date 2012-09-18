@@ -154,5 +154,120 @@
 		"stars": 3,
 		"ticked": false,
 		"loc": [53.5025,-122.635278]
+	},
+	{
+		"name": "The Red Monster",
+		"area": "Mickey's Beach",
+		"section": "The Green Monster",
+		"style": "Bouldering",
+		"rock": "",
+		"beta": "Stand or sit start into highball face. Drop off of jugs at lip or topout the V0X slab. Don't forget you'll have to down climb V0X to get off.",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V4"
+			},
+			"dws": ""
+		},
+		"stars": 2,
+		"ticked": false,
+		"loc": [37.888783, -122.629617]
+	},
+	{
+		"name": "Ah Baloney",
+		"area": "Mickey's Beach",
+		"section": "The Green Monster",
+		"style": "Bouldering",
+		"rock": "",
+		"beta": "Stand start on obvious jug down and left of arête. Make moves up and right past arête to topout on a slopey ledge. To descend, down climb and jump for the pads between the boulders at the base.",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V9"
+			},
+			"dws": ""
+		},
+		"stars": 2,
+		"ticked": false,
+		"loc": [37.888783, -122.629617]
+	},
+	{
+		"name": "The Green Monster",
+		"area": "Mickey's Beach",
+		"section": "The Green Monster",
+		"style": "Bouldering",
+		"rock": "",
+		"beta": "Stand start in the center of the main (southwest) face of The Green Monster and go straight up to a ledge about 15 to 20 ft. above the ground. Climb down and left to #8 to descend. In winter the sand goes down, exposing jagged rocks and making this highball problem even higherball (V3R). The sit start is V4 and V4R in winter.",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V3"
+			},
+			"dws": ""
+		},
+		"stars": 3,
+		"ticked": false,
+		"loc": [37.888783, -122.629617]
+	},
+	{
+		"name": "V5",
+		"area": "Mickey's Beach",
+		"section": "The Green Monster",
+		"style": "Bouldering",
+		"rock": "",
+		"beta": "Low sit start on left hand lie-back. Traverse up and right into #6 to finish.",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V5"
+			},
+			"dws": ""
+		},
+		"stars": 3,
+		"ticked": false,
+		"loc": [37.888783, -122.629617]
+	},
+	{
+		"name": "V0",
+		"area": "Mickey's Beach",
+		"section": "The Green Monster",
+		"style": "Bouldering",
+		"rock": "",
+		"beta": "Stand start then up face. Topout on ledge then climb back down or traverse off left to nearby rock to descend. V0R Highball in winter when the sand is low.",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V0"
+			},
+			"dws": ""
+		},
+		"stars": 2,
+		"ticked": false,
+		"loc": [37.888783, -122.629617]
 	}
 ]

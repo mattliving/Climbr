@@ -24,7 +24,7 @@
       return Routes;
 
     })(Backbone.Collection);
-    return new Routes;
+    return Routes;
   });
 
 }).call(this);

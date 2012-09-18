@@ -1,10 +1,219 @@
 [
 	{
-		"name": "Mickey's Beach",
+		"name": "Salt Point",
+		"numberOfProblems": "100+",
+		"rock": "Sandstone",
+		"approach": "",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "VB-V9, mostly V0-V7"
+			},
+			"dws": ""
+		},
+		"loc": [37.9011, -118.6443]
+	},
+	{
+		"name": "Fort Ross",
+		"numberOfProblems": "25",
+		"rock": "Sandstone",
+		"approach": "For Ross Boulders are on the beach also known as Kolmers Gulch about a hundred feet below the highway. A short (two-minute) steep downhill hike from the car will get you to the beach and the boulders.",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "VB-V11, mostly V1-V6"
+			},
+			"dws": ""
+		},
+		"loc": [38.5235, -123.263317]
+	},
+	{
+		"name": "Sea Crag",
+		"numberOfProblems": "20-30",
+		"rock": "Schist/Chert",
+		"approach": "",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "VB-V6"
+			},
+			"dws": ""
+		},
+		"loc": []
+	},
+	{
+		"name": "Twin Coves",
+		"numberOfProblems": "10-20",
+		"rock": "Schist/Graywacke Sandstone",
+		"approach": "",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "VB-V4"
+			},
+			"dws": ""
+		},
+		"loc": []
+	},
+	{
+		"name": "Super Slab",
+		"numberOfProblems": "25",
+		"rock": "Blue Schist",
+		"approach": "Super Slab can be seen above the pullout, just a two to three minute uphill hike. Don't make the mistake of hiking to the rock just south of Super Slab, it looks similar but only has a few boulder problems and a toprope.",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "VB-V9, mostly V0-V7"
+			},
+			"dws": ""
+		},
+		"loc": [38.455267, -123.1328]
+	},
+	{
+		"name": "River Mouth",
+		"numberOfProblems": "10-20",
+		"rock": "Schist",
+		"approach": "",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "VB-V7"
+			},
+			"dws": ""
+		},
+		"loc": [38.45138, -123.12941]
+	},
+	{
+		"name": "Goat Rock",
+		"numberOfProblems": "55",
+		"rock": "Blue and Green Schist",
+		"approach": "",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "VB-V10, mostly V0-V6"
+			},
+			"dws": ""
+		},
+		"loc": [38.4292, -123.1157]
+	},
+	{
+		"name": "Pomo Canyon",
+		"numberOfProblems": "15",
+		"rock": "Schist",
+		"approach": "",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V0-V8"
+			},
+			"dws": ""
+		},
+		"loc": [38.424917, -123.0652]
+	},
+	{
+		"name": "Marshall Gulch",
+		"numberOfProblems": "10-20",
+		"rock": "Greywacke Sandstone",
+		"approach": "",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V0-V6/8"
+			},
+			"dws": ""
+		},
+		"loc": []
+	},
+	{
+		"name": "Dillon Beach",
+		"numberOfProblems": "10-20",
+		"rock": "Schist",
+		"approach": "",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V0-V5"
+			},
+			"dws": ""
+		},
+		"loc": []
+	},
+	{
+		"name": "Dillon Beach",
+		"numberOfProblems": "10-20",
+		"rock": "Schist",
+		"approach": "",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V0-V5"
+			},
+			"dws": ""
+		},
+		"loc": []
+	},
+	{
+		"name": "Stinson Beach",
 		"numberOfProblems": "25",
 		"rock": "Serpentine and Greywacke Sandstone",
 		"approach": "",
-		"difficulty": {
+		"grade": {
 			"sport": {
 				"french": "",
 				"british": ""
@@ -16,6 +225,25 @@
 			},
 			"dws": ""
 		},
-		"loc": [37.9011, -118.6443]
+		"loc": [37.90735, -122.67866]
+	},
+	{
+		"name": "Mickey's Beach",
+		"numberOfProblems": "65",
+		"rock": "Serpentine and Greywacke Sandstone",
+		"approach": "From the parking lot, follow the main trail downhill to the beach. About a five-minute hike down the trail and you will be on top of the Main Rock, the popular sport climbing crag at Mickey's Beach. Another couple minutes hike down and right (north) will get you to the nude beach and the Nude Beach Boulders. You'll know when you're there.",
+		"grade": {
+			"sport": {
+				"french": "",
+				"british": ""
+			},
+			"trad": "",
+			"boulder": {
+				"font": "",
+				"hueco": "V0-V11"
+			},
+			"dws": ""
+		},
+		"loc": [37.888783, -122.629617]
 	}
 ]

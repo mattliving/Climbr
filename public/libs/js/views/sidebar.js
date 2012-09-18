@@ -30,11 +30,13 @@
       };
 
       SidebarView.prototype.render = function() {
-        var _this = this;
+        var area, _i, _len, _ref;
         this.$el.empty();
-        _.each(Areas.models, (function(area) {
-          return _this.renderArea(area);
-        }), this);
+        _ref = Areas.models;
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          area = _ref[_i];
+          this.renderArea(area);
+        }
         return this;
       };
 
@@ -57,8 +59,8 @@
           view.$el.addClass("toggled");
           if (!(this.routeViews[view.model.cid] != null)) {
             subview = new RoutesView({
-              el: this.el,
-              collection: Routes
+              el: view.el,
+              collection: new Routes
             });
             subview.collection.fetch({
               data: {
@@ -73,10 +75,15 @@
       };
 
       SidebarView.prototype.cleanup = function() {
+        var view, _i, _len, _ref, _results;
         SidebarView.__super__.cleanup.apply(this, arguments);
-        return _(this.areaViews).each(function(view) {
-          return view.cleanup();
-        });
+        _ref = this.areaViews;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          view = _ref[_i];
+          _results.push(view.cleanup());
+        }
+        return _results;
       };
 
       return SidebarView;

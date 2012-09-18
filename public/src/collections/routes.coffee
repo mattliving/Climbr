@@ -10,4 +10,4 @@ define ["jquery", "underscore", "backbone", "models/route"]
     comparator: (route) ->
       route.get "name"
 
-  new Routes
+  Routes

@@ -29,9 +29,8 @@ define ["jquery",
 
     render: ->
       @$el.empty()
-      _.each Areas.models, ((area) =>
+      for area in Areas.models
         @renderArea area
-      ), this
       this
 
     renderArea: (area) ->
@@ -47,7 +46,7 @@ define ["jquery",
       else
         view.$el.addClass "toggled"
         if not @routeViews[view.model.cid]?
-          subview = new RoutesView el: @el, collection: Routes
+          subview = new RoutesView el: view.el, collection: new Routes
           subview.collection.fetch data:
             area: view.model.get("name")
           @routeViews[view.model.cid] = subview
@@ -56,7 +55,7 @@ define ["jquery",
 
     cleanup: ->
       super
-      _(@areaViews).each (view) ->
+      for view in @areaViews
         view.cleanup()
 
   SidebarView

@@ -15,19 +15,18 @@ define ["jquery",
       @collection.bind "all", @render, this
 
     render: ->
-      _.each @collection.models, ((route) =>
-        @renderRoute route
-      ), this
+      if not @collection.models?
+        for route in @collection.models
+          @renderRoute route
       this
 
     renderRoute: (route) ->
       view = new RouteView(model: route)
-      @$el.append view.render().el
+      @$el.after view.render().el
       @routeViews.push view
       this
 
     hide: ->
-
       if not @hidden
         @hidden = true
         for view in @routeViews
@@ -41,7 +40,7 @@ define ["jquery",
 
     cleanup: ->
       super
-      _(@routeViews).each (view) ->
+      for view in @routeViews
         view.cleanup()
 
   RoutesView
