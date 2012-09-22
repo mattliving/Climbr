@@ -18,10 +18,12 @@
       MapView.prototype.events = {};
 
       MapView.prototype.initialize = function() {
-        var self;
+        var _this = this;
         this.markers = [];
         Areas.bind("all", this.render, this);
-        self = this;
+        this.dispatcher.bind("render:routeMarkers", (function(locs) {
+          return this.drawRouteMarkers(locs);
+        }), this);
         return this.initMap(function(bounds) {
           Areas.fetch({
             data: {
@@ -29,30 +31,55 @@
               ur: bounds.getNorthEast().toUrlValue().split(",")
             }
           });
-          return self.dispatcher.trigger("change:areas", Areas);
+          return _this.dispatcher.trigger("change:areas", Areas);
         });
       };
 
       MapView.prototype.render = function() {
+        var area, latLng, marker, _i, _len, _ref, _results;
         this.markers.length = 0;
-        return _.each(Areas.models, (function(area) {
-          var latLng, marker;
+        _ref = Areas.models;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          area = _ref[_i];
           latLng = new google.maps.LatLng(area.get("loc")[0], area.get("loc")[1]);
           marker = new google.maps.Marker({
             position: latLng,
             draggable: false,
             map: this.map
           });
-          return this.markers.push(marker);
-        }), this);
+          _results.push(this.markers.push(marker));
+        }
+        return _results;
       };
 
+      MapView.prototype.drawRouteMarkers = function(locs) {
+        var avgX, avgY, center, latLng, loc, marker, _i, _len;
+        avgX = avgY = 0;
+        for (_i = 0, _len = locs.length; _i < _len; _i++) {
+          loc = locs[_i];
+          avgX += loc.x;
+          avgY += loc.y;
+          latLng = new google.maps.LatLng(loc.x, loc.y);
+          marker = new google.maps.Marker({
+            position: latLng,
+            draggable: false,
+            map: this.map
+          });
+        }
+        center = new google.maps.LatLng(avgX / locs.length, avgY / locs.length);
+        return this.map.setCenter(center);
+      };
+
+      MapView.prototype.toggleRouteMarkers = function() {};
+
       MapView.prototype.initMap = function(callback) {
-        var geocoder, map, options, self;
+        var geocoder, map, options,
+          _this = this;
         options = {
           center: new google.maps.LatLng(-34.397, 150.644),
           minZoom: 4,
-          zoom: 7,
+          zoom: 8,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         this.map = new google.maps.Map(this.el, options);
@@ -62,14 +89,14 @@
         google.maps.event.addListener(map, "bounds_changed", function() {
           return callback(map.getBounds());
         });
-        self = this;
         return this.dispatcher.bind("submit:search", function(address) {
-          return self.codeAddress(map, geocoder, address);
+          return _this.codeAddress(map, geocoder, address);
         });
       };
 
       MapView.prototype.initPlaces = function() {
-        var ne, request, service, sw;
+        var ne, request, service, sw,
+          _this = this;
         sw = new google.maps.LatLng(-90, -180);
         ne = new google.maps.LatLng(90, 180);
         request = {
@@ -79,7 +106,7 @@
         service = new google.maps.places.PlacesService(this.map);
         return service.search(request, function(places, status) {
           if (status === google.maps.places.PlacesServiceStatus.OK) {
-            return self.dispatcher.trigger("init:places", places);
+            return _this.dispatcher.trigger("init:places", places);
           }
         });
       };

@@ -3,7 +3,7 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(["jquery", "underscore", "backbone", "views/baseview", "views/route"], function($, _, Backbone, BaseView, RouteView) {
+  define(["jquery", "underscore", "backbone", "views/baseview", "views/route"], function($, _, Backbone, BaseView, RouteView, MapView) {
     var RoutesView;
     RoutesView = (function(_super) {
 
@@ -17,19 +17,20 @@
 
       RoutesView.prototype.initialize = function() {
         this.hidden = false;
+        this.locs = [];
         this.routeViews = [];
         return this.collection.bind("all", this.render, this);
       };
 
       RoutesView.prototype.render = function() {
         var route, _i, _len, _ref;
-        if (!(this.collection.models != null)) {
-          _ref = this.collection.models;
-          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            route = _ref[_i];
-            this.renderRoute(route);
-          }
+        _ref = this.collection.models;
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          route = _ref[_i];
+          this.renderRoute(route);
+          this.renderMarkers(route);
         }
+        this.dispatcher.trigger("render:routeMarkers", this.locs);
         return this;
       };
 
@@ -41,6 +42,13 @@
         this.$el.after(view.render().el);
         this.routeViews.push(view);
         return this;
+      };
+
+      RoutesView.prototype.renderMarkers = function(route) {
+        return this.locs.push({
+          x: route.get("loc")[0],
+          y: route.get("loc")[1]
+        });
       };
 
       RoutesView.prototype.hide = function() {

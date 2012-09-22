@@ -21,7 +21,6 @@ body {
 .filler:after{
     background-color: inherit;
     bottom: 0;
-    /*top: 40px;*/
     right: 0;
     content: "";
     position: absolute;
@@ -90,10 +89,6 @@ input.search-query {
 	position: fixed;
 }
 
-.nav.nav-tabs.nav-stacked li {
-	/*padding: 10;*/
-}
-
 .icon-ok {
 	float: left;
 	margin-right: 5%;
@@ -155,17 +150,25 @@ li.toggled {
 	top: 40px;
 }
 
+#sidebar, .span3 {
+	overflow: scroll;
+}
+
 #searchBar {
-	margin-left: 14px;
+	margin-left: 12px;
+}
+
+#styleDropdown {
+	margin-left: 10px;
+}
+
+#gradesSlider {
+	margin: 7px 0 0 10px;
 }
 
 #gradeLabel {
 	margin-top: 8px;
 	margin-left: 20px;
-}
-
-#gradesSlider {
-	margin: 7px 0 0 35px;
 }
 
 #map {

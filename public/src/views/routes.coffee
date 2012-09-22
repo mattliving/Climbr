@@ -3,21 +3,23 @@ define ["jquery",
         "backbone",  
         "views/baseview",  
         "views/route"]
-        , ($, _, Backbone, BaseView, RouteView) ->
+        , ($, _, Backbone, BaseView, RouteView, MapView) ->
   
   class RoutesView extends BaseView
 
     events: {}
 
     initialize: ->
-      @hidden = false
+      @hidden  = false
+      @locs = []
       @routeViews = []
       @collection.bind "all", @render, this
 
     render: ->
-      if not @collection.models?
-        for route in @collection.models
-          @renderRoute route
+      for route in @collection.models
+        @renderRoute route
+        @renderMarkers route
+      @dispatcher.trigger "render:routeMarkers", @locs
       this
 
     renderRoute: (route) ->
@@ -25,6 +27,11 @@ define ["jquery",
       @$el.after view.render().el
       @routeViews.push view
       this
+
+    renderMarkers: (route) ->
+      @locs.push
+        x: route.get("loc")[0]
+        y: route.get("loc")[1]
 
     hide: ->
       if not @hidden

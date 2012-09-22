@@ -9,10 +9,11 @@ define ["jquery",
     initialize: ->
       @render()
       
-      $(window).resize(->
+      $(window).resize( ->
         h = $(".container-fluid").height()
         offsetTop = 80
         $("#map").css "height", (h - offsetTop)
+        $("#sidebar").css "height", (h - offsetTop)
         #$('#friends').css('height', (.1*h - offsetTop));
       ).resize()
 

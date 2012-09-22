@@ -21,7 +21,8 @@
           var h, offsetTop;
           h = $(".container-fluid").height();
           offsetTop = 80;
-          return $("#map").css("height", h - offsetTop);
+          $("#map").css("height", h - offsetTop);
+          return $("#sidebar").css("height", h - offsetTop);
         }).resize();
       };
 

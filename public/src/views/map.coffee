@@ -2,7 +2,8 @@ define ["jquery",
         "underscore", 
         "backbone", 
         "collections/areas", 
-        "views/baseview", "goog!maps,3,other_params:[libraries=places&key=AIzaSyAjNafop09-jd2jkly8d05QaPcOa0WddX8&sensor=true]"]
+        "views/baseview", 
+        "goog!maps,3,other_params:[libraries=places&key=AIzaSyAjNafop09-jd2jkly8d05QaPcOa0WddX8&sensor=true]"]
         , ($, _, Backbone, Areas, BaseView) ->
   
   class MapView extends BaseView
@@ -15,8 +16,11 @@ define ["jquery",
       @markers = []
       Areas.bind("all", @render, this)
 
-      self = this
-      @initMap (bounds) ->
+      @dispatcher.bind "render:routeMarkers", ((locs) ->
+        @drawRouteMarkers locs
+      ), this
+
+      @initMap (bounds) =>
         
         # Need to request all areas within map bounds 
         # from server and populate this collection 
@@ -24,12 +28,12 @@ define ["jquery",
           ll: bounds.getSouthWest().toUrlValue().split(",")
           ur: bounds.getNorthEast().toUrlValue().split(",")
 
-        self.dispatcher.trigger "change:areas", Areas
+        @dispatcher.trigger "change:areas", Areas
     
     #this.initPlaces();
     render: ->
       @markers.length = 0
-      _.each Areas.models, ((area) ->
+      for area in Areas.models
         latLng = new google.maps.LatLng(area.get("loc")[0], area.get("loc")[1])
         marker = new google.maps.Marker(
           position: latLng
@@ -37,13 +41,30 @@ define ["jquery",
           map: @map
         )
         @markers.push marker
-      ), this
+
+    # locs is an array of location objects with x and y coords of routes
+    drawRouteMarkers: (locs) ->
+      avgX = avgY = 0
+      for loc in locs
+        avgX += loc.x
+        avgY += loc.y
+        latLng = new google.maps.LatLng(loc.x, loc.y)
+        marker = new google.maps.Marker(
+          position: latLng
+          draggable: false
+          map: @map
+        )
+      center = new google.maps.LatLng(avgX/locs.length, avgY/locs.length)
+      @map.setCenter center
+
+    toggleRouteMarkers: ->
+
 
     initMap: (callback) ->
       options =
         center: new google.maps.LatLng(-34.397, 150.644)
         minZoom: 4
-        zoom: 7
+        zoom: 8
         mapTypeId: google.maps.MapTypeId.ROADMAP
 
       @map = new google.maps.Map(@el, options)
@@ -53,9 +74,8 @@ define ["jquery",
       google.maps.event.addListener map, "bounds_changed", ->
         callback map.getBounds()
 
-      self = this
-      @dispatcher.bind "submit:search", (address) ->
-        self.codeAddress map, geocoder, address
+      @dispatcher.bind "submit:search", (address) =>
+        @codeAddress map, geocoder, address
 
     initPlaces: ->
       sw = new google.maps.LatLng(-90, -180)
@@ -65,8 +85,8 @@ define ["jquery",
         types: ["country"]
 
       service = new google.maps.places.PlacesService(@map)
-      service.search request, (places, status) ->
-        self.dispatcher.trigger "init:places", places if status is google.maps.places.PlacesServiceStatus.OK
+      service.search request, (places, status) =>
+        @dispatcher.trigger "init:places", places if status is google.maps.places.PlacesServiceStatus.OK
 
     codeAddress: (map, geocoder, address) ->
       geocoder.geocode
