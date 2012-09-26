@@ -18,7 +18,7 @@
       SidebarView.prototype.events = {};
 
       SidebarView.prototype.initialize = function() {
-        this.areaViews = [];
+        this.toggledViews = [];
         this.routeViews = [];
         Areas.bind("all", this.render, this);
         this.dispatcher.bind("change:areas", function(MapAreas) {
@@ -46,15 +46,18 @@
           model: area
         });
         this.$el.append(view.render().el);
-        this.areaViews.push(view);
         return this;
       };
 
       SidebarView.prototype.toggle = function(view) {
-        var subview, _ref;
+        var area, subview, _ref;
         if (view.$el.hasClass("toggled")) {
           view.$el.removeClass("toggled");
-          return (_ref = this.routeViews[view.model.cid]) != null ? _ref.hide() : void 0;
+          if ((_ref = this.routeViews[view.model.cid]) != null) {
+            _ref.hide();
+          }
+          this.toggledViews[view.model.cid] = true;
+          return this.dispatcher.trigger("zoomOut:area");
         } else {
           view.$el.addClass("toggled");
           if (!(this.routeViews[view.model.cid] != null)) {
@@ -62,15 +65,17 @@
               el: view.el,
               collection: new Routes
             });
+            area = view.model.get("name");
             subview.collection.fetch({
               data: {
-                area: view.model.get("name")
+                area: area
               }
             });
-            return this.routeViews[view.model.cid] = subview;
+            this.routeViews[view.model.cid] = subview;
           } else {
-            return this.routeViews[view.model.cid].hide();
+            this.routeViews[view.model.cid].hide();
           }
+          return this.dispatcher.trigger("zoomIn:area", area);
         }
       };
 

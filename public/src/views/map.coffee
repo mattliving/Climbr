@@ -13,12 +13,14 @@ define ["jquery",
     events: {}
 
     initialize: ->
+      # Markers is a hash map from a view's name to its marker
       @markers = []
       Areas.bind("all", @render, this)
 
-      @dispatcher.bind "render:routeMarkers", ((locs) ->
-        @drawRouteMarkers locs
-      ), this
+      @dispatcher.on "zoomIn:area", (name) =>
+        @zoomIn name
+
+      @dispatcher.on "zoomOut:area", @zoomOut, @
 
       @initMap (bounds) =>
         
@@ -40,7 +42,7 @@ define ["jquery",
           draggable: false
           map: @map
         )
-        @markers.push marker
+        @markers[area.get("name")] = marker
 
     # locs is an array of location objects with x and y coords of routes
     drawRouteMarkers: (locs) ->
@@ -59,6 +61,12 @@ define ["jquery",
 
     toggleRouteMarkers: ->
 
+    zoomIn: (name) ->
+      @map.panTo @markers[name]?.getPosition()
+      @map.setZoom(10)
+
+    zoomOut: ->
+      #@map.setZoom(7)
 
     initMap: (callback) ->
       options =

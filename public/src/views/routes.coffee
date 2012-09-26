@@ -18,8 +18,8 @@ define ["jquery",
     render: ->
       for route in @collection.models
         @renderRoute route
-        @renderMarkers route
-      @dispatcher.trigger "render:routeMarkers", @locs
+        # @renderMarkers route
+      # @dispatcher.trigger "render:routes", @locs
       this
 
     renderRoute: (route) ->

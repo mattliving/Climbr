@@ -28,9 +28,7 @@
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           route = _ref[_i];
           this.renderRoute(route);
-          this.renderMarkers(route);
         }
-        this.dispatcher.trigger("render:routeMarkers", this.locs);
         return this;
       };
 

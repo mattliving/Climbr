@@ -21,9 +21,10 @@
         var _this = this;
         this.markers = [];
         Areas.bind("all", this.render, this);
-        this.dispatcher.bind("render:routeMarkers", (function(locs) {
-          return this.drawRouteMarkers(locs);
-        }), this);
+        this.dispatcher.on("zoomIn:area", function(name) {
+          return _this.zoomIn(name);
+        });
+        this.dispatcher.on("zoomOut:area", this.zoomOut, this);
         return this.initMap(function(bounds) {
           Areas.fetch({
             data: {
@@ -48,7 +49,7 @@
             draggable: false,
             map: this.map
           });
-          _results.push(this.markers.push(marker));
+          _results.push(this.markers[area.get("name")] = marker);
         }
         return _results;
       };
@@ -72,6 +73,14 @@
       };
 
       MapView.prototype.toggleRouteMarkers = function() {};
+
+      MapView.prototype.zoomIn = function(name) {
+        var _ref;
+        this.map.panTo((_ref = this.markers[name]) != null ? _ref.getPosition() : void 0);
+        return this.map.setZoom(10);
+      };
+
+      MapView.prototype.zoomOut = function() {};
 
       MapView.prototype.initMap = function(callback) {
         var geocoder, map, options,

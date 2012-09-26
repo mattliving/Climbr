@@ -16,7 +16,7 @@ define ["jquery",
     events: {}
 
     initialize: ->
-      @areaViews  = []
+      @toggledViews  = []
       @routeViews = []
       Areas.bind "all", @render, this
 
@@ -36,22 +36,26 @@ define ["jquery",
     renderArea: (area) ->
       view = new AreaView(model: area)
       @$el.append view.render().el
-      @areaViews.push view
+      # if @toggledViews[view.model.cid] is true then view.$el.addClass("toggled")
       this
 
     toggle: (view) ->
       if view.$el.hasClass("toggled")
         view.$el.removeClass "toggled"
         @routeViews[view.model.cid]?.hide()
+        @toggledViews[view.model.cid] = true
+        @dispatcher.trigger "zoomOut:area"
       else
         view.$el.addClass "toggled"
         if not @routeViews[view.model.cid]?
           subview = new RoutesView el: view.el, collection: new Routes
+          area = view.model.get("name")
           subview.collection.fetch data:
-            area: view.model.get("name")
+            area: area
           @routeViews[view.model.cid] = subview
         else 
           @routeViews[view.model.cid].hide()
+        @dispatcher.trigger "zoomIn:area", area
 
     cleanup: ->
       super

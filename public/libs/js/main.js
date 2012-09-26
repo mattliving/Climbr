@@ -28,13 +28,6 @@
   require(["backbone", "views/app"], function(Backbone, AppView) {
     var App;
     Backbone.View.prototype.dispatcher = _.extend({}, Backbone.Events);
-    Backbone.View.prototype.close = function() {
-      if (this.clear) {
-        this.clear();
-      }
-      this.remove();
-      return this.unbind();
-    };
     return App = new AppView();
   });
 

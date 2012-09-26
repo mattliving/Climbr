@@ -23,10 +23,6 @@ require.config
 require ["backbone", "views/app"], (Backbone, AppView) ->
 
   Backbone.View::dispatcher = _.extend({}, Backbone.Events)
-  Backbone.View::close = ->
-    @clear() if @clear
-    @remove()
-    @unbind()
 
   App = new AppView()
 

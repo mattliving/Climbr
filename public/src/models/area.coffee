@@ -20,7 +20,6 @@ define ["jquery", "underscore", "backbone"], ($, _, Backbone) ->
           hueco: ""
 
         dws: ""
-
       loc: [null, null]
 
     clear: ->
