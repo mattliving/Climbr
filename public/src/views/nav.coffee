@@ -3,10 +3,12 @@ define ["jquery",
         "backbone", 
         "views/baseview",
         "text!templates/mainNav.html", 
-        "text!templates/subNav.html", 
+        "text!templates/subNav.html",
+        "text!templates/signup.html",
+        "text!templates/login.html", 
         "bootstrap", 
         "jqueryui/slider"]
-        , ($, _, Backbone, BaseView, mainNav, subNav) ->
+        , ($, _, Backbone, BaseView, mainNav, subNav, signup, login) ->
   class NavView extends BaseView
 
     el: $("body")
@@ -15,6 +17,8 @@ define ["jquery",
 
     mainNavTemplate: _.template(mainNav)
     subNavTemplate: _.template(subNav)
+    signupTemplate: _.template(signup)
+    loginTemplate: _.template(login)
 
     events:
       "click .dropdown-menu li a" : "toggleActive"
@@ -28,7 +32,6 @@ define ["jquery",
       # Twitter Bootstrap init 
       $(".dropdown-toggle").dropdown()
       @initTypeahead()
-      self = this
       
       # jQuery UI slider init 
       $("#slider-range").slider
@@ -37,8 +40,8 @@ define ["jquery",
         step: 30
         max: 780
         values: [0, 780]
-        slide: (event, ui) ->
-          $("#gradeLabel .label.label-important").text self.calcGrade(ui.values[0]) + " - " + self.calcGrade(ui.values[1])
+        slide: (event, ui) =>
+          $("#gradeLabel .label.label-important").text @calcGrade(ui.values[0]) + " - " + @calcGrade(ui.values[1])
 
       $("#gradeLabel .label.label-important").text "3 - 9b+"
 
@@ -52,6 +55,8 @@ define ["jquery",
     render: ->
       @$el.append @mainNavTemplate
       @$el.append @subNavTemplate
+      @$el.append @signupTemplate
+      @$el.append @loginTemplate
       this
 
     toggleActive: (e) ->
