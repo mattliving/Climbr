@@ -27,27 +27,6 @@
 
   require(["backbone", "views/app"], function(Backbone, AppView) {
     var App;
-    (function(d) {
-      var id, js, ref;
-      id = "facebook-jssdk";
-      ref = d.getElementsByTagName("script")[0];
-      if (d.getElementById(id)) {
-        return;
-      }
-      js = d.createElement("script");
-      js.id = id;
-      js.async = true;
-      js.src = "//connect.facebook.net/en_US/all.js";
-      return ref.parentNode.insertBefore(js, ref);
-    })(document);
-    window.fbAsyncInit = function() {
-      return FB.init({
-        appId: "507951649218545",
-        status: true,
-        cookie: true,
-        xfbml: true
-      });
-    };
     Backbone.View.prototype.dispatcher = _.extend({}, Backbone.Events);
     return App = new AppView();
   });

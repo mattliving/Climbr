@@ -3,7 +3,7 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(["jquery", "underscore", "backbone", "views/baseview", "text!templates/mainNav.html", "text!templates/subNav.html", "text!templates/signup.html", "text!templates/login.html", "bootstrap", "jqueryui/slider"], function($, _, Backbone, BaseView, mainNav, subNav, signup, login) {
+  define(["jquery", "underscore", "backbone", "models/user", "views/baseview", "text!templates/mainNav.html", "text!templates/subNav.html", "text!templates/signup.html", "text!templates/login.html", "bootstrap", "jqueryui/slider"], function($, _, Backbone, User, BaseView, mainNav, subNav, signup, login) {
     var NavView;
     NavView = (function(_super) {
 
@@ -28,7 +28,8 @@
       NavView.prototype.events = {
         "click .dropdown-menu li a": "toggleActive",
         "submit #searchField": "triggerSearch",
-        "click #searchBtn": "triggerSearch"
+        "click #searchBtn": "triggerSearch",
+        "click #loginFacebook": "loginFacebook"
       };
 
       NavView.prototype.initialize = function() {
@@ -89,6 +90,10 @@
 
       NavView.prototype.calcGrade = function(value) {
         return this.grades[26 - (780 - value) / 30];
+      };
+
+      NavView.prototype.loginFacebook = function() {
+        return this.user = new User();
       };
 
       return NavView;

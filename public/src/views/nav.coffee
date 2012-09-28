@@ -1,6 +1,7 @@
 define ["jquery", 
         "underscore", 
         "backbone", 
+        "models/user",
         "views/baseview",
         "text!templates/mainNav.html", 
         "text!templates/subNav.html",
@@ -8,7 +9,7 @@ define ["jquery",
         "text!templates/login.html", 
         "bootstrap", 
         "jqueryui/slider"]
-        , ($, _, Backbone, BaseView, mainNav, subNav, signup, login) ->
+        , ($, _, Backbone, User, BaseView, mainNav, subNav, signup, login) ->
   class NavView extends BaseView
 
     el: $("body")
@@ -24,6 +25,7 @@ define ["jquery",
       "click .dropdown-menu li a" : "toggleActive"
       "submit #searchField"       : "triggerSearch"
       "click #searchBtn"          : "triggerSearch"
+      "click #loginFacebook"      : "loginFacebook"
 
     initialize: ->
       @render()
@@ -74,5 +76,8 @@ define ["jquery",
 
     calcGrade: (value) ->
       @grades[26 - (780 - value) / 30]
+
+    loginFacebook: ->
+      @user = new User()
 
   NavView

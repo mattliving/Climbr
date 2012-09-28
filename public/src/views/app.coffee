@@ -8,8 +8,6 @@ define ["jquery",
   class AppView extends BaseView
     el: $("body")
 
-    user: new User()
-
     initialize: ->
       @render()
       

@@ -22,24 +22,6 @@ require.config
 
 require ["backbone", "views/app"], (Backbone, AppView) ->
 
-  ((d) ->
-    id = "facebook-jssdk"
-    ref = d.getElementsByTagName("script")[0]
-    return if d.getElementById(id)
-    js = d.createElement("script")
-    js.id = id
-    js.async = true
-    js.src = "//connect.facebook.net/en_US/all.js"
-    ref.parentNode.insertBefore js, ref
-  ) document
-
-  window.fbAsyncInit = ->
-    FB.init
-      appId      : "507951649218545" # App ID
-      status     : true # check login status
-      cookie     : true # enable cookies to allow the server to access the session
-      xfbml      : true # parse XFBML
-
   Backbone.View::dispatcher = _.extend({}, Backbone.Events)
 
   App = new AppView()

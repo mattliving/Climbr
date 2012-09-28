@@ -26,36 +26,64 @@
         loc: [null, null]
       };
 
-      User.prototype.initialize = function() {};
+      User.prototype.initialize = function() {
+        this.initFB();
+        return this.loadFB(document);
+      };
 
-      User.prototype.fbAuth = function() {
-        var accessToken, uid;
-        FB.getLoginStatus(function(res) {});
-        if (res.status === "connected") {
-          uid = res.authResponse.userID;
-          return accessToken = res.authResponse.accessToken;
-        } else if (res.status === "not_authorized") {
-          return FB.login(function(response) {
-            if (response.authResponse) {
-              console.log("Welcome!  Fetching your information.... ");
-              return FB.api("/me", function(response) {
-                return console.log("Good to see you, " + response.name + ".");
+      User.prototype.initFB = function() {
+        return window.fbAsyncInit = function() {
+          FB.init({
+            appId: "507951649218545",
+            status: true,
+            cookie: true,
+            xfbml: true
+          });
+          return FB.getLoginStatus(function(res) {
+            var accessToken, uid;
+            console.log(res.status);
+            if (res.status === "connected") {
+              uid = res.authResponse.userID;
+              accessToken = res.authResponse.accessToken;
+              return FB.api("/me", function(res) {
+                return console.log(res.name);
+              });
+            } else if (res.status === "not_authorized") {
+              return FB.login(function(res) {
+                if (res.authResponse) {
+                  return FB.api("/me", function(res) {
+                    return console.log("Good to see you, " + res.name + ".");
+                  });
+                } else {
+                  return console.log("User cancelled login or did not fully authorize.");
+                }
               });
             } else {
-              return console.log("User cancelled login or did not fully authorize.");
+              FB.login(function(res) {});
+              if (res.authResponse) {
+                return FB.api("/me", function(res) {
+                  return console.log("Good to see you, " + res.name + ".");
+                });
+              } else {
+                return console.log("User cancelled login or did not fully authorize.");
+              }
             }
           });
-        } else {
-          FB.login(function(response) {});
-          if (response.authResponse) {
-            console.log("Welcome!  Fetching your information.... ");
-            return FB.api("/me", function(response) {
-              return console.log("Good to see you, " + response.name + ".");
-            });
-          } else {
-            return console.log("User cancelled login or did not fully authorize.");
-          }
+        };
+      };
+
+      User.prototype.loadFB = function(d) {
+        var id, js, ref;
+        id = "facebook-jssdk";
+        ref = d.getElementsByTagName("script")[0];
+        if (d.getElementById(id)) {
+          return;
         }
+        js = d.createElement("script");
+        js.id = id;
+        js.async = true;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        return ref.parentNode.insertBefore(js, ref);
       };
 
       User.prototype.gAuth = function() {};

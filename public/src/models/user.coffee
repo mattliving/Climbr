@@ -19,37 +19,47 @@ define ["jquery",
       loc: [null, null]
 
     initialize: ->
-      #@fbAuth()
+      @initFB()
+      @loadFB(document)
 
-    fbAuth: ->
-      FB.getLoginStatus (res) ->
-      if res.status is "connected"  
-        # the user is logged in and has authenticated your
-        # app, and res.authres supplies
-        # the user's ID, a valid access token, a signed
-        # request, and the time the access token 
-        # and signed request each expire
-        uid = res.authResponse.userID
-        accessToken = res.authResponse.accessToken
-      else if res.status is "not_authorized"
-        FB.login (response) ->
-          if response.authResponse
-            console.log "Welcome!  Fetching your information.... "
-            FB.api "/me", (response) ->
-              console.log "Good to see you, " + response.name + "."
+    initFB: ->
+      window.fbAsyncInit = ->
+        FB.init
+          appId      : "507951649218545" # App ID
+          status     : true # check login status
+          cookie     : true # enable cookies to allow the server to access the session
+          xfbml      : true # parse XFBML
 
-          else
-            console.log "User cancelled login or did not fully authorize."
-
-      else 
-        FB.login (response) ->
-        if response.authResponse
-          console.log "Welcome!  Fetching your information.... "
-          FB.api "/me", (response) ->
-            console.log "Good to see you, " + response.name + "."
-
-        else
-          console.log "User cancelled login or did not fully authorize."
+        FB.getLoginStatus (res) ->
+          console.log res.status
+          if res.status is "connected"  
+            uid = res.authResponse.userID
+            accessToken = res.authResponse.accessToken
+            FB.api "/me", (res) ->
+              console.log res.name
+          else if res.status is "not_authorized"
+            FB.login (res) ->
+              if res.authResponse
+                FB.api "/me", (res) ->
+                  console.log "Good to see you, " + res.name + "."
+              else
+                console.log "User cancelled login or did not fully authorize."
+          else 
+            FB.login (res) ->
+            if res.authResponse
+              FB.api "/me", (res) ->
+                console.log "Good to see you, " + res.name + "."
+            else
+              console.log "User cancelled login or did not fully authorize."
+    loadFB: (d) ->
+      id = "facebook-jssdk"
+      ref = d.getElementsByTagName("script")[0]
+      return if d.getElementById(id)
+      js = d.createElement("script")
+      js.id = id
+      js.async = true
+      js.src = "//connect.facebook.net/en_US/all.js"
+      ref.parentNode.insertBefore js, ref
 
     gAuth: ->
 

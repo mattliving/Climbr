@@ -15,8 +15,6 @@
 
       AppView.prototype.el = $("body");
 
-      AppView.prototype.user = new User();
-
       AppView.prototype.initialize = function() {
         this.render();
         return $(window).resize(function() {
