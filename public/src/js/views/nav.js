@@ -26,7 +26,7 @@
       NavView.prototype.loginTemplate = _.template(login);
 
       NavView.prototype.events = {
-        "click .dropdown-menu li a": "toggleActive",
+        "click #styleDropdown a": "toggleActive",
         "submit #searchField": "triggerSearch",
         "click #searchBtn": "triggerSearch",
         "click #loginFacebook": "loginFacebook"
@@ -34,7 +34,10 @@
 
       NavView.prototype.initialize = function() {
         var _this = this;
+        this.user = new User();
+        this.dispatcher.on("update:user", this.update, this);
         this.render();
+        this.mainNav = $("#mainNav");
         this.searchField = $("#searchField");
         $(".dropdown-toggle").dropdown();
         this.initTypeahead();
@@ -64,11 +67,16 @@
       };
 
       NavView.prototype.render = function() {
-        this.$el.append(this.mainNavTemplate);
+        this.$el.append(this.mainNavTemplate(this.user.toJSON()));
         this.$el.append(this.subNavTemplate);
         this.$el.append(this.signupTemplate);
         this.$el.append(this.loginTemplate);
         return this;
+      };
+
+      NavView.prototype.update = function() {
+        this.mainNav.replaceWith(this.mainNavTemplate(this.user.toJSON()));
+        return $(".dropdown-toggle").dropdown();
       };
 
       NavView.prototype.toggleActive = function(e) {
@@ -93,7 +101,78 @@
       };
 
       NavView.prototype.loginFacebook = function() {
-        return this.user = new User();
+        this.initFB();
+        return this.loadFB(document);
+      };
+
+      NavView.prototype.initFB = function() {
+        var _this = this;
+        this.user.set('authenticated', true);
+        return window.fbAsyncInit = function() {
+          FB.init({
+            appId: "507951649218545",
+            status: true,
+            cookie: true,
+            xfbml: true
+          });
+          return FB.getLoginStatus(function(res) {
+            var accessToken, uid;
+            if (res.status === "connected") {
+              uid = res.authResponse.userID;
+              accessToken = res.authResponse.accessToken;
+              return FB.api("/me", function(res) {
+                var names;
+                names = {
+                  first: res.first_name,
+                  last: res.last_name,
+                  full: res.name
+                };
+                _this.user.set('names', names);
+                return FB.api("/me&fields=picture", function(res) {
+                  _this.user.set('picture', res.picture.data.url);
+                  return FB.api("/me/friends", function(res) {
+                    _this.user.set('friends', res.data);
+                    _this.dispatcher.trigger("update:user");
+                    return console.log(_this.user.friends);
+                  });
+                });
+              });
+            } else if (res.status === "not_authorized") {
+              return FB.login(function(res) {
+                if (res.authResponse) {
+                  return FB.api("/me", function(res) {
+                    return console.log("Good to see you, " + res.name + ".");
+                  });
+                } else {
+                  return console.log("User cancelled login or did not fully authorize.");
+                }
+              });
+            } else {
+              FB.login(function(res) {});
+              if (res.authResponse) {
+                return FB.api("/me", function(res) {
+                  return console.log("Good to see you, " + res.name + ".");
+                });
+              } else {
+                return console.log("User cancelled login or did not fully authorize.");
+              }
+            }
+          });
+        };
+      };
+
+      NavView.prototype.loadFB = function(d) {
+        var id, js, ref;
+        id = "facebook-jssdk";
+        ref = d.getElementsByTagName("script")[0];
+        if (d.getElementById(id)) {
+          return;
+        }
+        js = d.createElement("script");
+        js.id = id;
+        js.async = true;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        return ref.parentNode.insertBefore(js, ref);
       };
 
       return NavView;

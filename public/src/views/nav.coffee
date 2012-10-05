@@ -22,13 +22,16 @@ define ["jquery",
     loginTemplate: _.template(login)
 
     events:
-      "click .dropdown-menu li a" : "toggleActive"
+      "click #styleDropdown a" : "toggleActive"
       "submit #searchField"       : "triggerSearch"
       "click #searchBtn"          : "triggerSearch"
       "click #loginFacebook"      : "loginFacebook"
 
     initialize: ->
+      @user = new User()
+      @dispatcher.on "update:user", @update, @
       @render()
+      @mainNav = $("#mainNav")
       @searchField = $("#searchField")
       
       # Twitter Bootstrap init 
@@ -55,11 +58,15 @@ define ["jquery",
           $("#searchField").typeahead source: data
 
     render: ->
-      @$el.append @mainNavTemplate
+      @$el.append @mainNavTemplate(@user.toJSON())
       @$el.append @subNavTemplate
       @$el.append @signupTemplate
       @$el.append @loginTemplate
       this
+
+    update: ->
+      @mainNav.replaceWith @mainNavTemplate(@user.toJSON())
+      $(".dropdown-toggle").dropdown()
 
     toggleActive: (e) ->
       $this = $(e.currentTarget)
@@ -78,6 +85,57 @@ define ["jquery",
       @grades[26 - (780 - value) / 30]
 
     loginFacebook: ->
-      @user = new User()
+      @initFB()
+      @loadFB(document)
+
+    initFB: ->
+      @user.set('authenticated', true)
+      window.fbAsyncInit = =>
+        FB.init
+          appId      : "507951649218545" # App ID
+          status     : true # check login status
+          cookie     : true # enable cookies to allow the server to access the session
+          xfbml      : true # parse XFBML
+
+        FB.getLoginStatus (res) =>
+          if res.status is "connected"  
+            uid = res.authResponse.userID
+            accessToken = res.authResponse.accessToken
+            FB.api "/me", (res) => 
+              names = 
+                first: res.first_name
+                last: res.last_name
+                full: res.name
+              @user.set('names', names)
+              FB.api "/me&fields=picture", (res) => 
+                @user.set('picture', res.picture.data.url)
+                FB.api "/me/friends", (res) =>
+                  @user.set('friends', res.data)
+                  @dispatcher.trigger "update:user"
+                  console.log @user.friends
+          else if res.status is "not_authorized"
+            FB.login (res) ->
+              if res.authResponse
+                FB.api "/me", (res) ->
+                  console.log "Good to see you, " + res.name + "."
+              else
+                console.log "User cancelled login or did not fully authorize."
+          else 
+            FB.login (res) ->
+            if res.authResponse
+              FB.api "/me", (res) ->
+                console.log "Good to see you, " + res.name + "."
+            else
+              console.log "User cancelled login or did not fully authorize."
+    
+    loadFB: (d) ->
+      id = "facebook-jssdk"
+      ref = d.getElementsByTagName("script")[0]
+      return if d.getElementById(id)
+      js = d.createElement("script")
+      js.id = id
+      js.async = true
+      js.src = "//connect.facebook.net/en_US/all.js"
+      ref.parentNode.insertBefore js, ref
 
   NavView

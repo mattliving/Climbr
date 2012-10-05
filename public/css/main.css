@@ -146,8 +146,17 @@ li.toggled {
 	margin-right: 0;
 }
 
+.dropdown-menu {
+	z-index: 1000;
+}
+
+li.dropdown .caret {
+	margin-left: 5px;
+}
+
 #subNav {
 	top: 40px;
+	z-index: 900;
 }
 
 #sidebar, .span3 {
@@ -190,6 +199,12 @@ li.toggled {
 	height: 5%;
 	background: #333;
 	color: black;
+}
+
+.nav img {
+	margin-top: 5px;
+	width: 30px;
+	height: 30px;
 }
 
 /* jQuery UI Slider */
